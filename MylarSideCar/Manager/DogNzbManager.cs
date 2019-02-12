@@ -1,45 +1,31 @@
-﻿using MylarSideCar.Manager.Configs;
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using MylarSideCar.Manager.Configs;
 using MylarSideCar.Manager.NewzNab;
 using MylarSideCar.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace MylarSideCar.Manager
 {
     public class DogNzbManager
     {
+        private const string DefaultUrl = "https://api.dognzb.cr";
 
-        private NewzNabSource source = null;
-        private const string DEFAULT_URL = "https://api.dognzb.cr";
-        DogNzbConfig config = null;
+        private static NewzNabSource _source;
+        private static DogNzbConfig _config;
 
-        private DogNzbConfig GetConfig()
+        private static DogNzbConfig GetConfig()
         {
-            if (config == null)
-            {
-                config = ConfigManager.GetValue<DogNzbConfig>();
-            }
-            return config;
+            return _config ?? (_config = ConfigManager.GetValue<DogNzbConfig>());
         }
 
-        private NewzNabSource GetSource()
+        private static NewzNabSource GetSource()
         {
-            if (source == null)
-            {
-                source = new NewzNabSource(DEFAULT_URL, true, GetConfig().ApiKey);
-            }
-            return source;
+            return _source ?? (_source = new NewzNabSource(DefaultUrl, true, GetConfig().ApiKey));
         }
 
-        public List<NewzNabSearchResult> SearchForIssue(Issue issue, Comic comic, bool year, bool issueNum)
+        public static List<NewzNabSearchResult> SearchForIssue(Issue issue, Comic comic, bool year, bool issueNum)
         {
-            NewzNabQuery query = new NewzNabQuery();
-            query.RequestedFunction = Functions.Search;
+            var query = new NewzNabQuery {RequestedFunction = Functions.Search};
             query.Groups.Add("alt.binaries.ebook");
             query.Groups.Add("alt.binaries.comics");
             query.Groups.Add("alt.binaries.comics.dcp");
@@ -53,20 +39,18 @@ namespace MylarSideCar.Manager
             query.Groups.Add("alt.binaries.pictures.comics.complete");
             query.Query = Regex.Replace(issue.ComicName, "[^a-zA-Z0-9_]+", " ");
 
-            List<NewzNabSearchResult> rawData = GetSource().Search(query);
+            var rawData = GetSource().Search(query);
 
-            List<NewzNabSearchResult> parsedResults = new List<NewzNabSearchResult>();
-
+            var parsedResults = new List<NewzNabSearchResult>();
 
             foreach (var result in rawData)
             {
                 if (!result.Category.ToLower().Contains("comic") &&
                     !result.Category.ToLower().Contains("book")) continue;
-                if (!TitleParseingManager.TitleMatch(result.Title, issue, comic, year, issueNum)) continue;
-               
+                if (!TitleParsingManager.TitleMatch(result.Title, issue, comic, year, issueNum)) continue;
+
                 result.Provider = "DogNzb";
                 parsedResults.Add(result);
-
             }
 
             return parsedResults;

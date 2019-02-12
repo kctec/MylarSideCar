@@ -110,9 +110,9 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 626);
+            this.statusStrip.Location = new System.Drawing.Point(0, 629);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1429, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1630, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -134,7 +134,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1429, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1630, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -158,7 +158,7 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cinfToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.settingsToolStripMenuItem.Text = "&Tools";
             // 
             // cinfToolStripMenuItem
@@ -181,8 +181,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1429, 602);
-            this.splitContainer1.SplitterDistance = 384;
+            this.splitContainer1.Size = new System.Drawing.Size(1630, 605);
+            this.splitContainer1.SplitterDistance = 438;
             this.splitContainer1.TabIndex = 5;
             // 
             // tabPanelComics
@@ -202,7 +202,7 @@
             this.tabPanelComics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tabPanelComics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tabPanelComics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabPanelComics.Size = new System.Drawing.Size(384, 602);
+            this.tabPanelComics.Size = new System.Drawing.Size(438, 605);
             this.tabPanelComics.TabIndex = 0;
             // 
             // lstComics
@@ -214,7 +214,7 @@
             this.lstComics.FormattingEnabled = true;
             this.lstComics.Location = new System.Drawing.Point(3, 33);
             this.lstComics.Name = "lstComics";
-            this.lstComics.Size = new System.Drawing.Size(378, 264);
+            this.lstComics.Size = new System.Drawing.Size(432, 264);
             this.lstComics.TabIndex = 6;
             // 
             // toolStrip1
@@ -228,7 +228,7 @@
             this.btnRefreshData});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(384, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(438, 25);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -288,9 +288,9 @@
             this.btnDownloaded,
             this.toolStripSeparator1,
             this.btnSearchIssue});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 301);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 302);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(384, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(438, 25);
             this.toolStrip2.TabIndex = 8;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -345,9 +345,9 @@
             // 
             this.listIssues.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listIssues.FormattingEnabled = true;
-            this.listIssues.Location = new System.Drawing.Point(3, 334);
+            this.listIssues.Location = new System.Drawing.Point(3, 335);
             this.listIssues.Name = "listIssues";
-            this.listIssues.Size = new System.Drawing.Size(378, 265);
+            this.listIssues.Size = new System.Drawing.Size(432, 267);
             this.listIssues.TabIndex = 9;
             // 
             // splitContainer2
@@ -363,8 +363,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.searchTable);
-            this.splitContainer2.Size = new System.Drawing.Size(1041, 602);
-            this.splitContainer2.SplitterDistance = 691;
+            this.splitContainer2.Size = new System.Drawing.Size(1188, 605);
+            this.splitContainer2.SplitterDistance = 788;
             this.splitContainer2.TabIndex = 0;
             // 
             // tabMain
@@ -376,7 +376,7 @@
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(691, 602);
+            this.tabMain.Size = new System.Drawing.Size(788, 605);
             this.tabMain.TabIndex = 0;
             // 
             // tabComic
@@ -388,7 +388,7 @@
             this.tabComic.Location = new System.Drawing.Point(4, 22);
             this.tabComic.Name = "tabComic";
             this.tabComic.Padding = new System.Windows.Forms.Padding(3);
-            this.tabComic.Size = new System.Drawing.Size(683, 576);
+            this.tabComic.Size = new System.Drawing.Size(780, 579);
             this.tabComic.TabIndex = 0;
             this.tabComic.Text = "comic";
             this.tabComic.UseVisualStyleBackColor = true;
@@ -412,9 +412,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.webDescription);
-            this.groupBox3.Location = new System.Drawing.Point(364, 39);
+            this.groupBox3.Location = new System.Drawing.Point(364, 30);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(319, 531);
+            this.groupBox3.Size = new System.Drawing.Size(410, 542);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Description:";
@@ -425,7 +425,7 @@
             this.webDescription.Location = new System.Drawing.Point(3, 16);
             this.webDescription.MinimumSize = new System.Drawing.Size(20, 20);
             this.webDescription.Name = "webDescription";
-            this.webDescription.Size = new System.Drawing.Size(313, 512);
+            this.webDescription.Size = new System.Drawing.Size(404, 523);
             this.webDescription.TabIndex = 0;
             // 
             // comicImage
@@ -482,7 +482,7 @@
             this.tabSearch.Location = new System.Drawing.Point(4, 22);
             this.tabSearch.Name = "tabSearch";
             this.tabSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSearch.Size = new System.Drawing.Size(683, 576);
+            this.tabSearch.Size = new System.Drawing.Size(780, 557);
             this.tabSearch.TabIndex = 2;
             this.tabSearch.Text = "Search";
             this.tabSearch.UseVisualStyleBackColor = true;
@@ -504,7 +504,7 @@
             this.searchTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.searchTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.searchTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.searchTable.Size = new System.Drawing.Size(346, 602);
+            this.searchTable.Size = new System.Drawing.Size(396, 605);
             this.searchTable.TabIndex = 8;
             // 
             // lstTorrentResults
@@ -514,9 +514,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstTorrentResults.DisplayMember = "BindingName";
             this.lstTorrentResults.FormattingEnabled = true;
-            this.lstTorrentResults.Location = new System.Drawing.Point(3, 334);
+            this.lstTorrentResults.Location = new System.Drawing.Point(3, 335);
             this.lstTorrentResults.Name = "lstTorrentResults";
-            this.lstTorrentResults.Size = new System.Drawing.Size(378, 264);
+            this.lstTorrentResults.Size = new System.Drawing.Size(390, 264);
             this.lstTorrentResults.TabIndex = 8;
             // 
             // toolStrip3
@@ -528,7 +528,7 @@
             this.btnSendToSab});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(384, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(396, 25);
             this.toolStrip3.TabIndex = 0;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -569,16 +569,16 @@
             this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel4,
             this.toolStripSeparator5});
-            this.toolStrip4.Location = new System.Drawing.Point(0, 301);
+            this.toolStrip4.Location = new System.Drawing.Point(0, 302);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(384, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(396, 25);
             this.toolStrip4.TabIndex = 1;
             this.toolStrip4.Text = "toolStrip4";
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(50, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(51, 22);
             this.toolStripLabel4.Text = "Torrents";
             // 
             // toolStripSeparator5
@@ -595,14 +595,14 @@
             this.lstNZBResults.FormattingEnabled = true;
             this.lstNZBResults.Location = new System.Drawing.Point(3, 33);
             this.lstNZBResults.Name = "lstNZBResults";
-            this.lstNZBResults.Size = new System.Drawing.Size(378, 264);
+            this.lstNZBResults.Size = new System.Drawing.Size(390, 264);
             this.lstNZBResults.TabIndex = 7;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1429, 648);
+            this.ClientSize = new System.Drawing.Size(1630, 651);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);

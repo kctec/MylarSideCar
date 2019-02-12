@@ -9,36 +9,25 @@ namespace MylarSideCar.Manager
 {
     public class ComicVineManager
     {
-        ComicVineConfig comicVineConfig = null;
-        RestClient client = null;
+        private static ComicVineConfig _comicVineConfig;
+        private static RestClient _client;
 
-
-
-        private RestClient GetRestClient()
+        private static RestClient GetRestClient()
         {
-            if (client == null)
-            {
-                client = new RestClient("http://www.comicvine.com/api");
-            }
-            return client;
+            return _client ?? (_client = new RestClient("http://www.comicvine.com/api"));
         }
 
-        private ComicVineConfig GetConfig()
+        private static ComicVineConfig GetConfig()
         {
-            if (comicVineConfig == null)
-            {
-                comicVineConfig = ConfigManager.GetValue<ComicVineConfig>();
-               
-            }
-            return comicVineConfig;
+            return _comicVineConfig ?? (_comicVineConfig = ConfigManager.GetValue<ComicVineConfig>());
         }
 
-        public CvVolumeResponse GetVolume(string comicId)
+        public static CvVolumeResponse GetVolume(string comicId)
         {
-            string content = null;
-            string filename = "volume_4050-" + comicId + ".json";
+            string content;
+            var filename = "volume_4050-" + comicId + ".json";
 
-            string path = Path.GetDirectoryName(Application.ExecutablePath) + "\\cvCache\\";
+            var path = Path.GetDirectoryName(Application.ExecutablePath) + "\\cvCache\\";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -54,9 +43,9 @@ namespace MylarSideCar.Manager
                 request.AddParameter("api_key", GetConfig().ApiKey);
                 request.AddParameter("format", "json");
 
-                IRestResponse response = GetRestClient().Execute(request);
+                var response = GetRestClient().Execute(request);
                 content = response.Content;
-                System.IO.File.WriteAllText(path, content);
+                File.WriteAllText(path, content);
             }
 
             var jsonSerializerSettings = new JsonSerializerSettings
@@ -65,18 +54,16 @@ namespace MylarSideCar.Manager
             };
         
 
-            CvVolumeResponse v = JsonConvert.DeserializeObject<CvVolumeResponse>(content, jsonSerializerSettings);
-
-            return v;
+            return JsonConvert.DeserializeObject<CvVolumeResponse>(content, jsonSerializerSettings);
 
         }
 
-        public CvPublisherResponse GetPublisher(string publisherId)
+        public static CvPublisherResponse GetPublisher(string publisherId)
         {
-            string content = null;
-            string filename = "publisher_40_10-" + publisherId + ".json";
+            string content;
+            var filename = "publisher_40_10-" + publisherId + ".json";
 
-            string path = Path.GetDirectoryName(Application.ExecutablePath) + "\\cvCache\\";
+            var path = Path.GetDirectoryName(Application.ExecutablePath) + "\\cvCache\\";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -92,9 +79,9 @@ namespace MylarSideCar.Manager
                 request.AddParameter("api_key", GetConfig().ApiKey);
                 request.AddParameter("format", "json");
 
-                IRestResponse response = GetRestClient().Execute(request);
+                var response = GetRestClient().Execute(request);
                  content = response.Content;
-                System.IO.File.WriteAllText(path, content);
+                File.WriteAllText(path, content);
             }
 
             var jsonSerializerSettings = new JsonSerializerSettings
@@ -102,10 +89,9 @@ namespace MylarSideCar.Manager
                 MissingMemberHandling = MissingMemberHandling.Ignore
             };
 
-            CvPublisherResponse v = JsonConvert.DeserializeObject<CvPublisherResponse>(content, jsonSerializerSettings);
+            return JsonConvert.DeserializeObject<CvPublisherResponse>(content, jsonSerializerSettings);
 
-            return v;
-
+     
         }
 
 

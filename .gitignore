@@ -64,3 +64,6 @@ ServiceDefinition.build.csdef
 
 #Ignore private folder
 /Private/
+
+.vs/*
+

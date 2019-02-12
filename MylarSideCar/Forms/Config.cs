@@ -20,7 +20,6 @@ namespace MylarSideCar.Forms
         public Config()
         {
             InitializeComponent();
-
             BindData();
         }
 
@@ -83,7 +82,7 @@ namespace MylarSideCar.Forms
         {
             ConfigManager.Save();
 
-            if (txtAPIkey.Text != null)
+            if (!string.IsNullOrEmpty(txtAPIkey.Text))
             {
                 _sabConfig.ApIkey = txtAPIkey.Text;
                 _sabConfig.HostUrl = txtHost.Text;
@@ -91,11 +90,15 @@ namespace MylarSideCar.Forms
                 _sabConfig.Password = txtPassword.Text;
                 _sabConfig.Root = txtSabRoot.Text;
                 _sabConfig.Https = chkSabSsl.Checked;
-                _sabConfig.Port = int.Parse(txtSabPort.Text);
+                if (txtSabPort.Text != null)
+                {
+                    if (!string.IsNullOrEmpty(txtSabPort.Text))
+                        _sabConfig.Port = int.Parse(txtSabPort.Text);
+                }
+
                 ConfigManager.SetValue(_sabConfig);
             }
-
-            if (txtMylarApiKey.Text != null)
+            if (!string.IsNullOrEmpty(txtMylarApiKey.Text))
             {
                 _mylarConfig.APIkey = txtMylarApiKey.Text;
                 _mylarConfig.HostURL = txtMylarHost.Text;
@@ -104,27 +107,28 @@ namespace MylarSideCar.Forms
 
                 ConfigManager.SetValue(_mylarConfig);
             }
-            if (txtNzbGeekApiKey.Text != null)
+            if (!string.IsNullOrEmpty(txtNzbGeekApiKey.Text))
             {
                 _nzbGeekConfig.ApiKey = txtNzbGeekApiKey.Text;
                 ConfigManager.SetValue(_nzbGeekConfig);
             }
-            if (txtOmgwtfnzbsApiKey.Text != null)
+            if (!string.IsNullOrEmpty(txtOmgwtfnzbsApiKey.Text))
             {
                 _omgConfig.ApiKey = txtOmgwtfnzbsApiKey.Text;
                 ConfigManager.SetValue(_omgConfig);
             }
-            if (txtDogNzbApiKey.Text != null)
+
+            if (!string.IsNullOrEmpty(txtDogNzbApiKey.Text))
             {
                 _dogNzbConfig.ApiKey = txtDogNzbApiKey.Text;
                 ConfigManager.SetValue(_dogNzbConfig);
             }
-            if (txtWsFinderApiKey.Text != null)
+            if (!string.IsNullOrEmpty(txtDogNzbApiKey.Text))
             {
                 _wsFinderConfig.ApiKey = txtWsFinderApiKey.Text;
                 ConfigManager.SetValue(_wsFinderConfig);
             }
-            if (txtComicVineApiKey.Text != null)
+            if (!string.IsNullOrEmpty(txtComicVineApiKey.Text))
             {
                 _comicVineConfig.ApiKey = txtComicVineApiKey.Text;
                 ConfigManager.SetValue(_comicVineConfig);
@@ -137,11 +141,6 @@ namespace MylarSideCar.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void chkSabSsl_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -78,6 +78,7 @@
       <DependentUpon>Config.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\32pManager.cs" />
+    <Compile Include="Manager\TorznabManager.cs" />
     <Compile Include="Manager\ComicVineManager.cs" />
     <Compile Include="Manager\Configs\ComicVineConfig.cs" />
     <Compile Include="Manager\Configs\MylarConfig.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Model\Issue.cs" />
     <Compile Include="Model\Title.cs" />
     <Compile Include="Manager\TitleParsingManager.cs" />
+    <Compile Include="Model\TorzNabSearchResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Config.resx">

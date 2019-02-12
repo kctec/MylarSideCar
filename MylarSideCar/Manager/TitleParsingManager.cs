@@ -11,7 +11,7 @@ namespace MylarSideCar.Manager
     public class TitleParsingManager
     {
 
-        public static bool TitleMatch(string title, Issue issue, Comic comic, bool year, bool issueNumber)
+        public static bool TitleMatch(string title, Issue issue, Comic comic)
         {
             var fixedTitle = Regex.Replace(title, "[^a-zA-Z0-9_]+", " ");
 

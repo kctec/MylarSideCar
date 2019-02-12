@@ -164,12 +164,12 @@ namespace MylarSideCar.Manager
             return ConfigDict.ContainsKey(key);
         }
 
-        public static T GetValue<T>()
+        public static T GetConfig<T>()
         {
-            return GetValue<T>(typeof(T).Name);
+            return GetConfig<T>(typeof(T).Name);
         }
 
-        public static T GetValue<T>(string key)
+        public static T GetConfig<T>(string key)
         {
             if (HasValue(key))
             {

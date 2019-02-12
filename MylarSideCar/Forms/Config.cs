@@ -8,15 +8,7 @@ namespace MylarSideCar.Forms
 {
     public partial class Config : Form
     {
-        private SabConfig _sabConfig = new SabConfig();
-        private MylarConfig  _mylarConfig = new MylarConfig();
-        private WsFinderConfig _wsFinderConfig = new WsFinderConfig();
-        private NzbGeekConfig _nzbGeekConfig = new NzbGeekConfig();
-        private OmgConfig _omgConfig = new OmgConfig();
-        private DogNzbConfig _dogNzbConfig = new DogNzbConfig();
-        private ComicVineConfig _comicVineConfig = new ComicVineConfig();
-
-
+ 
         public Config()
         {
             InitializeComponent();
@@ -27,54 +19,77 @@ namespace MylarSideCar.Forms
         {
             if (ConfigManager.HasValue<SabConfig>())
             {
-                _sabConfig = ConfigManager.GetValue<SabConfig>();
-                txtAPIkey.Text = _sabConfig.ApIkey;
-                txtHost.Text = _sabConfig.HostUrl;
-                txtUserName.Text = _sabConfig.UserName;
-                txtPassword.Text = _sabConfig.Password;
-                txtSabRoot.Text = _sabConfig.Root;
-                chkSabSsl.Checked = _sabConfig.Https;
+                var sabConfig = ConfigManager.GetConfig<SabConfig>();
+                txtAPIkey.Text = sabConfig.ApIkey;
+                txtHost.Text = sabConfig.HostUrl;
+                txtUserName.Text = sabConfig.UserName;
+                txtPassword.Text = sabConfig.Password;
+                txtSabRoot.Text = sabConfig.Root;
+                chkSabSsl.Checked = sabConfig.Https;
    
-                txtSabPort.Text = _sabConfig.Port.ToString();
+                txtSabPort.Text = sabConfig.Port.ToString();
             }
             if (ConfigManager.HasValue<MylarConfig>())
             {
-                _mylarConfig = ConfigManager.GetValue<MylarConfig>();
-                txtMylarApiKey.Text = _mylarConfig.APIkey;
-                txtMylarHost.Text = _mylarConfig.HostURL;
-                txtMylarUserName.Text = _mylarConfig.UserName;
-                txtMylarPassword.Text = _mylarConfig.Password;
+                var mylarConfig = ConfigManager.GetConfig<MylarConfig>();
+                txtMylarApiKey.Text = mylarConfig.APIkey;
+                txtMylarHost.Text = mylarConfig.HostURL;
+                txtMylarUserName.Text = mylarConfig.UserName;
+                txtMylarPassword.Text = mylarConfig.Password;
             }
 
-            if (ConfigManager.HasValue<DogNzbConfig>())
+            if (ConfigManager.HasValue<NewzNabConfig>())
             {
-                _dogNzbConfig = ConfigManager.GetValue<DogNzbConfig>();
-                txtDogNzbApiKey.Text = _dogNzbConfig.ApiKey;
+                var newzNabConfig = ConfigManager.GetConfig<NewzNabConfig>();
+                txtNewzName1.Text = newzNabConfig.NewzNabName_1;
+                txtNewzHost1.Text = newzNabConfig.NewzNabURL_1;
+                txtNewzApi1.Text = newzNabConfig.NewzNabApiKey_1;
+                chkNewzNabEnabled1.Checked = newzNabConfig.NewzNabEnabled_1;
+ 
+                txtNewzName2.Text = newzNabConfig.NewzNabName_2;
+                txtNewzHost2.Text = newzNabConfig.NewzNabURL_2;
+                txtNewzApi2.Text = newzNabConfig.NewzNabApiKey_2;
+                chkNewzNabEnabled2.Checked = newzNabConfig.NewzNabEnabled_2;
+ 
+                txtNewzName3.Text = newzNabConfig.NewzNabName_3;
+                txtNewzHost3.Text = newzNabConfig.NewzNabURL_3;
+                txtNewzApi3.Text = newzNabConfig.NewzNabApiKey_3;
+                chkNewzNabEnabled3.Checked = newzNabConfig.NewzNabEnabled_3;
+ 
+                txtNewzName4.Text = newzNabConfig.NewzNabName_4;
+                txtNewzHost4.Text = newzNabConfig.NewzNabURL_4;
+                txtNewzApi4.Text = newzNabConfig.NewzNabApiKey_4;
+                chkNewzNabEnabled4.Checked = newzNabConfig.NewzNabEnabled_4;
+
             }
 
-            if (ConfigManager.HasValue<NzbGeekConfig>())
+            if (ConfigManager.HasValue<TorzNabConfig>())
             {
-                _nzbGeekConfig = ConfigManager.GetValue<NzbGeekConfig>();
-                txtNzbGeekApiKey.Text = _nzbGeekConfig.ApiKey;
+                var torzNabConfig = ConfigManager.GetConfig<TorzNabConfig>();
+                txtTorzNabName1.Text = torzNabConfig.TorzNabName_1;
+                txtTorzNabHost1.Text = torzNabConfig.TorzNabURL_1;
+                txtTorzNabApiKey1.Text = torzNabConfig.TorzNabApiKey_1;
+                chkTorzNabEnabled1.Checked = torzNabConfig.TorzNabEnabled_1;
+
+                txtTorzNabName2.Text = torzNabConfig.TorzNabName_2;
+                txtTorzNabHost2.Text = torzNabConfig.TorzNabURL_2;
+                txtTorzNabApiKey2.Text = torzNabConfig.TorzNabApiKey_2;
+                chkTorzNabEnabled2.Checked = torzNabConfig.TorzNabEnabled_2;
+
+                txtTorzNabName3.Text = torzNabConfig.TorzNabName_3;
+                txtTorzNabHost3.Text = torzNabConfig.TorzNabURL_3;
+                txtTorzNabApiKey3.Text = torzNabConfig.TorzNabApiKey_3;
+                chkTorzNabEnabled3.Checked = torzNabConfig.TorzNabEnabled_3;
+
+                txtTorzNabName4.Text = torzNabConfig.TorzNabName_4;
+                txtTorzNabHost4.Text = torzNabConfig.TorzNabURL_4;
+                txtTorzNabApiKey4.Text = torzNabConfig.TorzNabApiKey_4;
+                chkTorzNabEnabled4.Checked = torzNabConfig.TorzNabEnabled_4;
+
             }
 
-            if (ConfigManager.HasValue<OmgConfig>())
-            {
-                _omgConfig = ConfigManager.GetValue<OmgConfig>();
-                txtOmgwtfnzbsApiKey.Text = _omgConfig.ApiKey;
-            }
 
-            if (ConfigManager.HasValue<WsFinderConfig>())
-            {
-                _wsFinderConfig = ConfigManager.GetValue<WsFinderConfig>();
-                txtWsFinderApiKey.Text = _dogNzbConfig.ApiKey;
-            }
 
-            if (ConfigManager.HasValue<ComicVineConfig>())
-            {
-                _comicVineConfig = ConfigManager.GetValue<ComicVineConfig>();
-                txtComicVineApiKey.Text = _comicVineConfig.ApiKey;
-            }
 
 
         }
@@ -84,55 +99,32 @@ namespace MylarSideCar.Forms
 
             if (!string.IsNullOrEmpty(txtAPIkey.Text))
             {
-                _sabConfig.ApIkey = txtAPIkey.Text;
-                _sabConfig.HostUrl = txtHost.Text;
-                _sabConfig.UserName = txtUserName.Text;
-                _sabConfig.Password = txtPassword.Text;
-                _sabConfig.Root = txtSabRoot.Text;
-                _sabConfig.Https = chkSabSsl.Checked;
+                var sabConfig = ConfigManager.GetConfig<SabConfig>();
+                sabConfig.ApIkey = txtAPIkey.Text;
+                sabConfig.HostUrl = txtHost.Text;
+                sabConfig.UserName = txtUserName.Text;
+                sabConfig.Password = txtPassword.Text;
+                sabConfig.Root = txtSabRoot.Text;
+                sabConfig.Https = chkSabSsl.Checked;
                 if (txtSabPort.Text != null)
                 {
                     if (!string.IsNullOrEmpty(txtSabPort.Text))
-                        _sabConfig.Port = int.Parse(txtSabPort.Text);
+                        sabConfig.Port = int.Parse(txtSabPort.Text);
                 }
 
-                ConfigManager.SetValue(_sabConfig);
+                ConfigManager.SetValue(sabConfig);
             }
             if (!string.IsNullOrEmpty(txtMylarApiKey.Text))
             {
-                _mylarConfig.APIkey = txtMylarApiKey.Text;
-                _mylarConfig.HostURL = txtMylarHost.Text;
-                _mylarConfig.UserName = txtMylarUserName.Text;
-                _mylarConfig.Password = txtMylarPassword.Text;
+                var mylarConfig = ConfigManager.GetConfig<MylarConfig>();
+                mylarConfig.APIkey = txtMylarApiKey.Text;
+                mylarConfig.HostURL = txtMylarHost.Text;
+                mylarConfig.UserName = txtMylarUserName.Text;
+                mylarConfig.Password = txtMylarPassword.Text;
 
-                ConfigManager.SetValue(_mylarConfig);
+                ConfigManager.SetValue(mylarConfig);
             }
-            if (!string.IsNullOrEmpty(txtNzbGeekApiKey.Text))
-            {
-                _nzbGeekConfig.ApiKey = txtNzbGeekApiKey.Text;
-                ConfigManager.SetValue(_nzbGeekConfig);
-            }
-            if (!string.IsNullOrEmpty(txtOmgwtfnzbsApiKey.Text))
-            {
-                _omgConfig.ApiKey = txtOmgwtfnzbsApiKey.Text;
-                ConfigManager.SetValue(_omgConfig);
-            }
-
-            if (!string.IsNullOrEmpty(txtDogNzbApiKey.Text))
-            {
-                _dogNzbConfig.ApiKey = txtDogNzbApiKey.Text;
-                ConfigManager.SetValue(_dogNzbConfig);
-            }
-            if (!string.IsNullOrEmpty(txtDogNzbApiKey.Text))
-            {
-                _wsFinderConfig.ApiKey = txtWsFinderApiKey.Text;
-                ConfigManager.SetValue(_wsFinderConfig);
-            }
-            if (!string.IsNullOrEmpty(txtComicVineApiKey.Text))
-            {
-                _comicVineConfig.ApiKey = txtComicVineApiKey.Text;
-                ConfigManager.SetValue(_comicVineConfig);
-            }
+             
 
 
             ConfigManager.Save();

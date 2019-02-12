@@ -16,7 +16,7 @@ namespace MylarSideCar.Manager
                 return;
             }
 
-            var sabConfig = ConfigManager.GetValue<SabConfig>();
+            var sabConfig = ConfigManager.GetConfig<SabConfig>();
 
             var host = new StringBuilder();
             

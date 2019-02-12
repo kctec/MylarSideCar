@@ -15,11 +15,32 @@ namespace MylarSideCar.Manager
         {
             var results = new List<NewzNabSearchResult>();
 
-            if (ConfigManager.HasValue<WsFinderConfig>())
+            if (!ConfigManager.HasValue<NewzNabConfig>())
+            {
+                return null;
+            }
+
+            var newzNabConfig = ConfigManager.GetValue<NewzNabConfig>();
+
+            if (!string.IsNullOrEmpty(newzNabConfig.NewzNabURL_1) && newzNabConfig.NewzNabEnabled_1)
+            {
+                try
+                {
+                    results.AddRange(NewzNabManager.SearchForIssue(issue, comic
+                }
+                catch
+                {
+                    //disable provider
+                    newzNabConfig.NewzNabEnabled_1 = false;
+                    ConfigManager.SetValue(newzNabConfig);
+                    ConfigManager.Save();
+                }
+            }
+
                 results.AddRange(WsFinderManager.SearchForIssue(issue, comic, true, true));
 
             if (ConfigManager.HasValue<NzbGeekConfig>())
-                results.AddRange(NzbGeekManager.SearchForIssue(issue, comic, true, true));
+                results.AddRange(NewzNabManager.SearchForIssue(issue, comic, true, true));
 
             if (ConfigManager.HasValue<OmgConfig>())
                 results.AddRange(OmgManager.SearchForIssue(issue, comic, true, true));

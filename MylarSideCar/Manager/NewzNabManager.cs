@@ -11,24 +11,16 @@ using System.Xml;
 
 namespace MylarSideCar.Manager
 {
-    public class NzbGeekManager
+    public class NewzNabManager
     {
 
-        private static NewzNabSource _source;
-        private const string DefaultUrl = "https://api.nzbgeek.info";
-        private static NzbGeekConfig _config;
-
-        private static NzbGeekConfig GetConfig()
+ 
+        private static NewzNabSource GetSource(string host, string apiKey )
         {
-            return _config ?? (_config = ConfigManager.GetValue<NzbGeekConfig>());
+            return new NewzNabSource(host, true, apiKey);
         }
 
-        private static NewzNabSource GetSource()
-        {
-            return _source ?? (_source = new NewzNabSource(DefaultUrl, true, GetConfig().ApiKey));
-        }
-
-        public static List<NewzNabSearchResult> SearchForIssue(Issue issue, Comic comic, bool year, bool issueNum)
+        public static List<NewzNabSearchResult> SearchForIssue(Issue issue, Comic comic, string host, string apiKey, string name)
         {
             var query = new NewzNabQuery {RequestedFunction = Functions.Search};
             query.Groups.Add("alt.binaries.ebook");
@@ -44,7 +36,7 @@ namespace MylarSideCar.Manager
             query.Groups.Add("alt.binaries.pictures.comics.complete");
             query.Query = Regex.Replace(comic.ComicName, "[^a-zA-Z0-9_]+", " ");
 
-            var rawData = GetSource().Search(query);
+            var rawData = GetSource(host,apiKey).Search(query);
 
             var parsedResults = new List<NewzNabSearchResult>();
 
@@ -52,9 +44,9 @@ namespace MylarSideCar.Manager
             {
                 if (!result.Category.ToLower().Contains("comic") &&
                     !result.Category.ToLower().Contains("book")) continue;
-                if (!TitleParsingManager.TitleMatch(result.Title, issue, comic, year, issueNum)) continue;
+                if (!TitleParsingManager.TitleMatch(result.Title, issue, comic)) continue;
  
-                result.Provider = "NzbGeek";
+                result.Provider = name;
                 parsedResults.Add(result);
 
             }

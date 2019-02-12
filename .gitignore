@@ -67,3 +67,7 @@ ServiceDefinition.build.csdef
 
 .vs/*
 
+*.cache
+*.cache
+MylarSideCar/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+MylarSideCar/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache

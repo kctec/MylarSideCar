@@ -19,7 +19,7 @@ namespace MylarSideCar.Manager
 
         private static ComicVineConfig GetConfig()
         {
-            return _comicVineConfig ?? (_comicVineConfig = ConfigManager.GetValue<ComicVineConfig>());
+            return _comicVineConfig ?? (_comicVineConfig = ConfigManager.GetConfig<ComicVineConfig>());
         }
 
         public static CvVolumeResponse GetVolume(string comicId)

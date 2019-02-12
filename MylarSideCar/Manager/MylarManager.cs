@@ -18,7 +18,7 @@ namespace MylarSideCar.Manager
 
         private static MylarConfig GetConfig()
         {
-            return _mylarConfig ?? (_mylarConfig = ConfigManager.GetValue<MylarConfig>());
+            return _mylarConfig ?? (_mylarConfig = ConfigManager.GetConfig<MylarConfig>());
         }
 
 

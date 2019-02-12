@@ -127,7 +127,7 @@ namespace MylarSideCar.Manager
 
                     configElm.AppendChild(itemElm);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     MessageBox.Show("Unable to save setting '" + keyValue.Key + "'.");
                 }

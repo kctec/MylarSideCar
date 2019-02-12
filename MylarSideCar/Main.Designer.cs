@@ -46,7 +46,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.txtComicFilter = new System.Windows.Forms.ToolStripTextBox();
             this.btnFilterComics = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnSearchComic = new System.Windows.Forms.ToolStripButton();
             this.btnRefreshData = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -74,7 +74,6 @@
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnFuzzyFilter = new System.Windows.Forms.ToolStripButton();
             this.btnSendToSab = new System.Windows.Forms.ToolStripButton();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
@@ -158,7 +157,7 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cinfToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.settingsToolStripMenuItem.Text = "&Tools";
             // 
             // cinfToolStripMenuItem
@@ -224,7 +223,7 @@
             this.toolStripSeparator2,
             this.txtComicFilter,
             this.btnFilterComics,
-            this.toolStripButton1,
+            this.btnSearchComic,
             this.btnRefreshData});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -259,15 +258,15 @@
             this.btnFilterComics.ToolTipText = "Filter Resullts";
             this.btnFilterComics.Click += new System.EventHandler(this.BtnFilterComics_Click);
             // 
-            // toolStripButton1
+            // btnSearchComic
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "btnComicSearch";
-            this.toolStripButton1.ToolTipText = "Search - Import from Comic Vine";
+            this.btnSearchComic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSearchComic.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchComic.Image")));
+            this.btnSearchComic.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSearchComic.Name = "btnSearchComic";
+            this.btnSearchComic.Size = new System.Drawing.Size(23, 22);
+            this.btnSearchComic.Text = "btnComicSearch";
+            this.btnSearchComic.ToolTipText = "Search For Pack";
             // 
             // btnRefreshData
             // 
@@ -444,7 +443,7 @@
             this.tabIssue.Location = new System.Drawing.Point(4, 22);
             this.tabIssue.Name = "tabIssue";
             this.tabIssue.Padding = new System.Windows.Forms.Padding(3);
-            this.tabIssue.Size = new System.Drawing.Size(683, 576);
+            this.tabIssue.Size = new System.Drawing.Size(780, 579);
             this.tabIssue.TabIndex = 1;
             this.tabIssue.Text = "Issue";
             this.tabIssue.UseVisualStyleBackColor = true;
@@ -482,7 +481,7 @@
             this.tabSearch.Location = new System.Drawing.Point(4, 22);
             this.tabSearch.Name = "tabSearch";
             this.tabSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSearch.Size = new System.Drawing.Size(780, 557);
+            this.tabSearch.Size = new System.Drawing.Size(780, 579);
             this.tabSearch.TabIndex = 2;
             this.tabSearch.Text = "Search";
             this.tabSearch.UseVisualStyleBackColor = true;
@@ -524,7 +523,6 @@
             this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel3,
             this.toolStripSeparator4,
-            this.btnFuzzyFilter,
             this.btnSendToSab});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
@@ -542,16 +540,6 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnFuzzyFilter
-            // 
-            this.btnFuzzyFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnFuzzyFilter.Image = ((System.Drawing.Image)(resources.GetObject("btnFuzzyFilter.Image")));
-            this.btnFuzzyFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFuzzyFilter.Name = "btnFuzzyFilter";
-            this.btnFuzzyFilter.Size = new System.Drawing.Size(23, 22);
-            this.btnFuzzyFilter.Text = "FuzzyFilter";
-            this.btnFuzzyFilter.ToolTipText = "Fuzzy Results";
             // 
             // btnSendToSab
             // 
@@ -578,7 +566,7 @@
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(51, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(50, 22);
             this.toolStripLabel4.Text = "Torrents";
             // 
             // toolStripSeparator5
@@ -663,7 +651,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripTextBox txtComicFilter;
         private System.Windows.Forms.ToolStripButton btnFilterComics;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnSearchComic;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btnMissing;
         private System.Windows.Forms.ToolStripButton btnDownloaded;
@@ -686,7 +674,6 @@
         private System.Windows.Forms.TabPage tabSearch;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton btnFuzzyFilter;
         private System.Windows.Forms.ToolStripButton btnSendToSab;
         private System.Windows.Forms.ListBox lstTorrentResults;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;

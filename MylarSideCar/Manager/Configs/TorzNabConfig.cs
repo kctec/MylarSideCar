@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MylarSideCar.Manager.Configs
 {
     [Serializable]
-    class TorzNabConfig
+    public class TorzNabConfig
     {
         public string TorzNabName_1 { get; set; }
         public string TorzNabURL_1 { get; set; }

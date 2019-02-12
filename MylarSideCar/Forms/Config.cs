@@ -3,6 +3,7 @@ using MylarSideCar.Manager.Configs;
 using System;
  
 using System.Windows.Forms;
+using NewzNabConfig = MylarSideCar.Manager.Configs.NewzNabConfig;
 
 namespace MylarSideCar.Forms
 {
@@ -89,9 +90,6 @@ namespace MylarSideCar.Forms
             }
 
 
-
-
-
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -99,13 +97,15 @@ namespace MylarSideCar.Forms
 
             if (!string.IsNullOrEmpty(txtAPIkey.Text))
             {
-                var sabConfig = ConfigManager.GetConfig<SabConfig>();
-                sabConfig.ApIkey = txtAPIkey.Text;
-                sabConfig.HostUrl = txtHost.Text;
-                sabConfig.UserName = txtUserName.Text;
-                sabConfig.Password = txtPassword.Text;
-                sabConfig.Root = txtSabRoot.Text;
-                sabConfig.Https = chkSabSsl.Checked;
+                var sabConfig = new SabConfig
+                {
+                    ApIkey = txtAPIkey.Text,
+                    HostUrl = txtHost.Text,
+                    UserName = txtUserName.Text,
+                    Password = txtPassword.Text,
+                    Root = txtSabRoot.Text,
+                    Https = chkSabSsl.Checked
+                };
                 if (txtSabPort.Text != null)
                 {
                     if (!string.IsNullOrEmpty(txtSabPort.Text))
@@ -116,18 +116,77 @@ namespace MylarSideCar.Forms
             }
             if (!string.IsNullOrEmpty(txtMylarApiKey.Text))
             {
-                var mylarConfig = ConfigManager.GetConfig<MylarConfig>();
-                mylarConfig.APIkey = txtMylarApiKey.Text;
-                mylarConfig.HostURL = txtMylarHost.Text;
-                mylarConfig.UserName = txtMylarUserName.Text;
-                mylarConfig.Password = txtMylarPassword.Text;
+                var mylarConfig = new MylarConfig
+                {
+                    APIkey = txtMylarApiKey.Text,
+                    HostURL = txtMylarHost.Text,
+                    UserName = txtMylarUserName.Text,
+                    Password = txtMylarPassword.Text
+                };
 
                 ConfigManager.SetValue(mylarConfig);
             }
-             
+
+            if (!string.IsNullOrEmpty(txtTorzNabHost1.Text) || !string.IsNullOrEmpty(txtTorzNabHost2.Text) ||
+                !string.IsNullOrEmpty(txtTorzNabHost3.Text) || !string.IsNullOrEmpty(txtTorzNabHost4.Text))
+            {
+                var torzNabConfig = new TorzNabConfig
+                {
+                    TorzNabName_1 = txtTorzNabName1.Text,
+                    TorzNabApiKey_1 = txtTorzNabApiKey1.Text,
+                    TorzNabURL_1 = txtTorzNabHost1.Text,
+                    TorzNabEnabled_1 = chkTorzNabEnabled1.Checked,
+                    TorzNabName_2 = txtTorzNabName2.Text,
+                    TorzNabApiKey_2 = txtTorzNabApiKey2.Text,
+                    TorzNabURL_2 = txtTorzNabHost2.Text,
+                    TorzNabEnabled_2 = chkTorzNabEnabled2.Checked,
+                    TorzNabName_3 = txtTorzNabName3.Text,
+                    TorzNabApiKey_3 = txtTorzNabApiKey3.Text,
+                    TorzNabURL_3 = txtTorzNabHost3.Text,
+                    TorzNabEnabled_3 = chkTorzNabEnabled3.Checked,
+                    TorzNabName_4 = txtTorzNabName4.Text,
+                    TorzNabApiKey_4 = txtTorzNabApiKey4.Text,
+                    TorzNabURL_4 = txtTorzNabHost4.Text,
+                    TorzNabEnabled_4 = chkTorzNabEnabled4.Checked
+                };
+
+
+
+
+                ConfigManager.SetValue(torzNabConfig);
+            }
+
+            if (!string.IsNullOrEmpty(txtNewzHost1.Text) || !string.IsNullOrEmpty(txtNewzHost2.Text) ||
+                !string.IsNullOrEmpty(txtNewzHost3.Text) || !string.IsNullOrEmpty(txtNewzHost4.Text))
+            {
+                var newzNabConfig = new NewzNabConfig
+                {
+                    NewzNabName_1 = txtNewzName1.Text,
+                    NewzNabApiKey_1 = txtNewzApi1.Text,
+                    NewzNabURL_1 = txtNewzHost1.Text,
+                    NewzNabEnabled_1 = chkNewzNabEnabled1.Checked,
+                    NewzNabName_2 = txtNewzName2.Text,
+                    NewzNabApiKey_2 = txtNewzApi2.Text,
+                    NewzNabURL_2 = txtNewzHost2.Text,
+                    NewzNabEnabled_2 = chkNewzNabEnabled2.Checked,
+                    NewzNabName_3 = txtNewzName3.Text,
+                    NewzNabApiKey_3 = txtNewzApi3.Text,
+                    NewzNabURL_3 = txtNewzHost3.Text,
+                    NewzNabEnabled_3 = chkNewzNabEnabled3.Checked,
+                    NewzNabName_4 = txtNewzName4.Text,
+                    NewzNabApiKey_4 = txtNewzApi4.Text,
+                    NewzNabURL_4 = txtNewzHost4.Text,
+                    NewzNabEnabled_4 = chkNewzNabEnabled4.Checked
+                };
+ 
+                ConfigManager.SetValue(newzNabConfig);
+
+            }
 
 
             ConfigManager.Save();
+
+            Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

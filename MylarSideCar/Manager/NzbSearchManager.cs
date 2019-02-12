@@ -1,10 +1,6 @@
 ﻿using MylarSideCar.Manager.Configs;
 using MylarSideCar.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MylarSideCar.Manager
 {
@@ -20,13 +16,14 @@ namespace MylarSideCar.Manager
                 return null;
             }
 
-            var newzNabConfig = ConfigManager.GetValue<NewzNabConfig>();
+            var newzNabConfig = ConfigManager.GetConfig<NewzNabConfig>();
 
             if (!string.IsNullOrEmpty(newzNabConfig.NewzNabURL_1) && newzNabConfig.NewzNabEnabled_1)
             {
                 try
                 {
-                    results.AddRange(NewzNabManager.SearchForIssue(issue, comic
+                    results.AddRange(NewzNabManager.SearchForIssue(issue, comic, newzNabConfig.NewzNabURL_1,
+                        newzNabConfig.NewzNabApiKey_1, newzNabConfig.NewzNabName_1));
                 }
                 catch
                 {
@@ -37,16 +34,71 @@ namespace MylarSideCar.Manager
                 }
             }
 
-                results.AddRange(WsFinderManager.SearchForIssue(issue, comic, true, true));
+            if (!string.IsNullOrEmpty(newzNabConfig.NewzNabURL_1) && newzNabConfig.NewzNabEnabled_1)
+            {
+                try
+                {
+                    results.AddRange(NewzNabManager.SearchForIssue(issue, comic, newzNabConfig.NewzNabURL_1,
+                        newzNabConfig.NewzNabApiKey_1, newzNabConfig.NewzNabName_1));
+                }
+                catch
+                {
+                    //disable provider
+                    newzNabConfig.NewzNabEnabled_1 = false;
+                    ConfigManager.SetValue(newzNabConfig);
+                    ConfigManager.Save();
+                }
+            }
 
-            if (ConfigManager.HasValue<NzbGeekConfig>())
-                results.AddRange(NewzNabManager.SearchForIssue(issue, comic, true, true));
 
-            if (ConfigManager.HasValue<OmgConfig>())
-                results.AddRange(OmgManager.SearchForIssue(issue, comic, true, true));
+            if (!string.IsNullOrEmpty(newzNabConfig.NewzNabURL_2) && newzNabConfig.NewzNabEnabled_2)
+            {
+                try
+                {
+                    results.AddRange(NewzNabManager.SearchForIssue(issue, comic, newzNabConfig.NewzNabURL_2,
+                        newzNabConfig.NewzNabApiKey_2, newzNabConfig.NewzNabName_2));
+                }
+                catch
+                {
+                    //disable provider
+                    newzNabConfig.NewzNabEnabled_1 = false;
+                    ConfigManager.SetValue(newzNabConfig);
+                    ConfigManager.Save();
+                }
+            }
 
-            if (ConfigManager.HasValue<DogNzbConfig>())
-                results.AddRange(DogNzbManager.SearchForIssue(issue, comic, true, true));
+            if (!string.IsNullOrEmpty(newzNabConfig.NewzNabURL_3) && newzNabConfig.NewzNabEnabled_3)
+            {
+                try
+                {
+                    results.AddRange(NewzNabManager.SearchForIssue(issue, comic, newzNabConfig.NewzNabURL_3,
+                        newzNabConfig.NewzNabApiKey_3, newzNabConfig.NewzNabName_3));
+                }
+                catch
+                {
+                    //disable provider
+                    newzNabConfig.NewzNabEnabled_3 = false;
+                    ConfigManager.SetValue(newzNabConfig);
+                    ConfigManager.Save();
+                }
+            }
+
+            if (!string.IsNullOrEmpty(newzNabConfig.NewzNabURL_4) && newzNabConfig.NewzNabEnabled_4)
+            {
+                try
+                {
+                    results.AddRange(NewzNabManager.SearchForIssue(issue, comic, newzNabConfig.NewzNabURL_4,
+                        newzNabConfig.NewzNabApiKey_4, newzNabConfig.NewzNabName_4));
+                }
+                catch
+                {
+                    //disable provider
+                    newzNabConfig.NewzNabEnabled_4 = false;
+                    ConfigManager.SetValue(newzNabConfig);
+                    ConfigManager.Save();
+                }
+            }
+
 
             return results;
         }

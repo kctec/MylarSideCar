@@ -1,27 +1,66 @@
+#Ignore email files delivered to specified pickup directory
+*.eml
+
+#Allow NuGet.exe (do not ignore)
+!NuGet.exe
+
+#Ignore WebDeploy publish profiles
+*.Publish.xml
+
+#Ignore Azure build csdef & Pubxml files
+ServiceDefinition.build.csdef
+*.azurePubxml
+
+#Allow ReSharper .DotSettings (for non-namespace-provider properties)
+!*.csproj.DotSettings
+
+#Ignore private folder
+/Private/
+
 
 .vs/MylarSideCar/v15/.suo
 .vs/MylarSideCar/v15/Server/sqlite3/db.lock
 .vs/MylarSideCar/v15/Server/sqlite3/storage.ide-shm
 .vs/MylarSideCar/v15/Server/sqlite3/storage.ide-wal
-MylarSideCar/obj/Debug/MylarSideCar.csproj.CoreCompileInputs.cache
-MylarSideCar/obj/Debug/MylarSideCar.csprojAssemblyReference.cache
+MylarSideCar/obj/*
 *.dll
-MylarSideCar/bin/Debug/Microsoft.Threading.Tasks.Extensions.Desktop.xml
-MylarSideCar/bin/Debug/Microsoft.Threading.Tasks.Extensions.xml
-MylarSideCar/bin/Debug/Microsoft.Threading.Tasks.xml
-MylarSideCar/bin/Debug/MylarSideCar.exe
-MylarSideCar/bin/Debug/MylarSideCar.exe.config
-MylarSideCar/bin/Debug/MylarSideCar.pdb
-MylarSideCar/bin/Debug/Newtonsoft.Json.pdb
-MylarSideCar/bin/Debug/Newtonsoft.Json.xml
-MylarSideCar/bin/Debug/RestSharp.xml
-MylarSideCar/obj/Debug/MylarSideCar.csproj.CopyComplete
-MylarSideCar/obj/Debug/MylarSideCar.csproj.FileListAbsolute.txt
-MylarSideCar/obj/Debug/MylarSideCar.csproj.GenerateResource.cache
-MylarSideCar/obj/Debug/MylarSideCar.exe
-MylarSideCar/obj/Debug/MylarSideCar.exe.config
-MylarSideCar/obj/Debug/MylarSideCar.Forms.Config.resources
-MylarSideCar/obj/Debug/MylarSideCar.Main.resources
-MylarSideCar/obj/Debug/MylarSideCar.pdb
-MylarSideCar/obj/Debug/MylarSideCar.Properties.Resources.resources
-MylarSideCar/bin/Debug/AppConfig.xml
+MylarSideCar/bin/*
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+#Ignore email files delivered to specified pickup directory
+*.eml
+
+#Allow NuGet.exe (do not ignore)
+!NuGet.exe
+
+#Ignore WebDeploy publish profiles
+*.Publish.xml
+
+#Ignore Azure build csdef & Pubxml files
+ServiceDefinition.build.csdef
+*.azurePubxml
+
+#Allow ReSharper .DotSettings (for non-namespace-provider properties)
+!*.csproj.DotSettings
+
+#Ignore private folder
+/Private/

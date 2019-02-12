@@ -8,34 +8,25 @@ namespace MylarSideCar.Manager
 {
     public class WsFinderManager
     {
-        NewzNabSource source = null;
-        private const string DEFAULT_URL= "https://nzbfinder.ws";
+        private static NewzNabSource _source;
+        private const string DefaultUrl= "https://nzbfinder.ws";
 
-        WsFinderConfig config = null;
+        private static WsFinderConfig _config;
  
 
-        private WsFinderConfig GetConfig()
+        private static WsFinderConfig GetConfig()
         {
-            if(config == null)
-            {
-                config = ConfigManager.GetValue<WsFinderConfig>();
-            }
-            return config;
+            return _config ?? (_config = ConfigManager.GetValue<WsFinderConfig>());
         }
 
-        private NewzNabSource GetSource()
+        private static NewzNabSource GetSource()
         {
-            if (source == null)
-            {
-                source = new NewzNabSource(DEFAULT_URL, true, GetConfig().ApiKey);
-            }
-            return source;
+            return _source ?? (_source = new NewzNabSource(DefaultUrl, true, GetConfig().ApiKey));
         }
 
-        public List<NewzNabSearchResult> SearchForIssue(Issue issue, Comic comic, bool year, bool issueNum)
+        public static List<NewzNabSearchResult> SearchForIssue(Issue issue, Comic comic, bool year, bool issueNum)
         {
-            NewzNabQuery query = new NewzNabQuery();
-            query.RequestedFunction = Functions.Search;
+            var query = new NewzNabQuery {RequestedFunction = Functions.Search};
             query.Groups.Add("alt.binaries.ebook");
             query.Groups.Add("alt.binaries.comics");
             query.Groups.Add("alt.binaries.comics.dcp");
@@ -58,7 +49,7 @@ namespace MylarSideCar.Manager
             {
                 if (!result.Category.ToLower().Contains("comic") &&
                     !result.Category.ToLower().Contains("book")) continue;
-                if (!TitleParseingManager.TitleMatch(result.Title, issue, comic, year, issueNum)) continue;
+                if (!TitleParsingManager.TitleMatch(result.Title, issue, comic, year, issueNum)) continue;
                 result.Provider = "WsFinder";
                 parsedResults.Add(result);
             }

@@ -10,26 +10,22 @@ namespace MylarSideCar.Manager
 {
     public class NzbSearchManager
     {
-        readonly WsFinderManager wsManager = new WsFinderManager();
-        readonly NzbGeekManager nzbGeek = new NzbGeekManager();
-        readonly OmgManager omgManager = new OmgManager();
-        readonly DogNzbManager dogManager = new DogNzbManager();
 
-        public List<NewzNabSearchResult> SearchForIssue(Issue issue, Comic comic)
+        public static List<NewzNabSearchResult> SearchForIssue(Issue issue, Comic comic)
         {
-            List<NewzNabSearchResult> results = new List<NewzNabSearchResult>();
+            var results = new List<NewzNabSearchResult>();
 
-           // if (ConfigManager.HasValue<WsFinderConfig>())
-                //results.AddRange(wsManager.SearchForIssue(issue, comic, true, true));
+            if (ConfigManager.HasValue<WsFinderConfig>())
+                results.AddRange(WsFinderManager.SearchForIssue(issue, comic, true, true));
 
             if (ConfigManager.HasValue<NzbGeekConfig>())
-                results.AddRange(nzbGeek.SearchForIssue(issue, comic, true, true));
+                results.AddRange(NzbGeekManager.SearchForIssue(issue, comic, true, true));
 
             if (ConfigManager.HasValue<OmgConfig>())
-                results.AddRange(omgManager.SearchForIssue(issue, comic, true, true));
+                results.AddRange(OmgManager.SearchForIssue(issue, comic, true, true));
 
             if (ConfigManager.HasValue<DogNzbConfig>())
-                results.AddRange(dogManager.SearchForIssue(issue, comic, true, true));
+                results.AddRange(DogNzbManager.SearchForIssue(issue, comic, true, true));
 
             return results;
         }

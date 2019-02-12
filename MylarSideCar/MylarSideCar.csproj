@@ -122,7 +122,7 @@
     <Compile Include="Model\Core\Entity.cs" />
     <Compile Include="Model\Issue.cs" />
     <Compile Include="Model\Title.cs" />
-    <Compile Include="Manager\TitleParseingManager.cs" />
+    <Compile Include="Manager\TitleParsingManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Config.resx">

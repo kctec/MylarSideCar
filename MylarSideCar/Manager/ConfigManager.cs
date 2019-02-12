@@ -1,29 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
-
-using System.Windows.Forms;
-
-using System.Xml.Serialization;
-using System.Xml;
 using System.Diagnostics;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace MylarSideCar.Manager
 {
     public static class ConfigManager
     {
-        static string _FileNameWithoutPath = "\\AppConfig.xml";
+        private const string FileNameWithoutPath = "\\AppConfig.xml";
+
+        private static readonly Dictionary<string, object> ConfigDict = new Dictionary<string, object>();
 
         internal static bool HasValue<T>()
         {
-            string name = typeof(T).Name;
+            var name = typeof(T).Name;
             return HasValue(name);
         }
 
-        static Dictionary<string, object> _ConfigDict = new Dictionary<string, object>();
-
-        static bool _NoSave = false;
 
         public static string GetStorageDirectory()
         {
@@ -32,170 +29,140 @@ namespace MylarSideCar.Manager
 
 
         /// <summary>
-        /// Indicates if config has been saved to disk yet (in other words, if this is a first-time launch)
-        /// </summary>
-        public static bool ConfigFileExists
-        {
-            get
-            {
-                return File.Exists(GetStorageDirectory() + _FileNameWithoutPath) ||
-                        File.Exists(GetStorageDirectory() + _FileNameWithoutPath);
-            }
-        }
-
-        /// <summary>
-        /// loads config
+        ///     loads config
         /// </summary>
         public static void Load()
         {
-            string FileName = GetStorageDirectory() + _FileNameWithoutPath;
-            if (!File.Exists(FileName))
-                FileName = GetStorageDirectory() + _FileNameWithoutPath;
-            if (!File.Exists(FileName))
+            var fileName = GetStorageDirectory() + FileNameWithoutPath;
+            if (!File.Exists(fileName))
+                fileName = GetStorageDirectory() + FileNameWithoutPath;
+            if (!File.Exists(fileName))
                 return;
 
-            XmlDocument X = new XmlDocument();
+            var x = new XmlDocument();
             try
             {
-                X.Load(FileName);
+                x.Load(fileName);
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show("Unable to load settings.\r\n\r\n" + e.Message, "NzbSearcher");
+                MessageBox.Show("Unable to load settings.\r\n\r\n" + e.Message, "NzbSearcher");
             }
 
- 
 
-            _ConfigDict.Clear();
-            XmlNodeList Items = X.SelectNodes("/ConfigItems/item");
-            foreach (XmlNode Item in Items)
-            {
-                string type = string.Empty;
+            ConfigDict.Clear();
+            var items = x.SelectNodes("/ConfigItems/item");
+            if (items == null) return;
 
+            foreach (XmlNode item in items)
                 try
                 {
                     object value = null;
-                    type = Item.Attributes["type"].Value;
+                    if (item.Attributes != null)
+                    {
+                        var type = item.Attributes["type"].Value;
 
-                    if (Item.Attributes.Count != 1) //only "type" attributes are allowed in the new config
+                        if (item.Attributes.Count != 1) //only "type" attributes are allowed in the new config
+                            throw new Exception("Incompatible Config");
+
+                        var serializedType = Type.GetType(type);
+                        var valueSerializer =
+                            new XmlSerializer(serializedType ?? throw new InvalidOperationException());
+                        using (var innerStream = new StringReader(item.InnerXml))
+                        {
+                            value = valueSerializer.Deserialize(innerStream);
+                        }
+                    }
+
+                    var valueType = value?.GetType();
+                    if (valueType?.FullName != null && !valueType.FullName.StartsWith("MylarSideCar."))
                         throw new Exception("Incompatible Config");
 
-                    Type SerializedType = Type.GetType(type);
-                    XmlSerializer ValueSerializer = new XmlSerializer(SerializedType);
-                    using (StringReader InnerStream = new StringReader(Item.InnerXml))
-                        value = ValueSerializer.Deserialize(InnerStream);
-
-                    Type ValueType = value.GetType();
-                    if (!ValueType.FullName.StartsWith("MylarSideCar."))
-                        throw new Exception("Incompatible Config");
-
-                    _ConfigDict.Add(value.GetType().Name, value);
+                    if (value != null) ConfigDict.Add(value.GetType().Name, value);
                 }
                 catch (Exception e)
                 {
-
                     Debug.Write(e.Message);
- 
                 }
-            }
         }
 
         /// <summary>
-        /// Save the configuration to disk
+        ///     Save the configuration to disk
         /// </summary>
         public static void Save()
         {
-            if (_NoSave)
-                return;
-           
-            XmlDocument X = new XmlDocument();
-            X.AppendChild(X.CreateXmlDeclaration("1.0", "UTF-8", null));
+            var x = new XmlDocument();
+            x.AppendChild(x.CreateXmlDeclaration("1.0", "UTF-8", null));
 
-            XmlNode ConfigElm = X.CreateElement("ConfigItems");
+            XmlNode configElm = x.CreateElement("ConfigItems");
 
-            foreach (KeyValuePair<string, object> KeyValue in _ConfigDict)
-            {
+            foreach (var keyValue in ConfigDict)
                 try
                 {
-                    XmlNode ItemElm = X.CreateElement("item");
+                    XmlNode itemElm = x.CreateElement("item");
                     //XmlNode NameAttr = X.CreateAttribute("name");
-                    XmlNode TypeAttr = X.CreateAttribute("type");
+                    XmlNode typeAttr = x.CreateAttribute("type");
 
                     //NameAttr.Value = KeyValue.Key;
-                    TypeAttr.Value = KeyValue.Value.GetType().FullName;
-                    if (Type.GetType(TypeAttr.Value) == null) // if GetType can't resolve just by FullName, use AssemblyQualifiedName
-                        TypeAttr.Value = KeyValue.Value.GetType().AssemblyQualifiedName;
+                    typeAttr.Value = keyValue.Value.GetType().FullName;
+                    if (Type.GetType(typeAttr.Value ?? throw new InvalidOperationException()) == null
+                    ) // if GetType can't resolve just by FullName, use AssemblyQualifiedName
+                        typeAttr.Value = keyValue.Value.GetType().AssemblyQualifiedName;
 
                     //ItemElm.Attributes.SetNamedItem(NameAttr);
-                    ItemElm.Attributes.SetNamedItem(TypeAttr);
+                    if (itemElm.Attributes != null)
+                    {
+                        itemElm.Attributes.SetNamedItem(typeAttr);
 
-                    XmlSerializer ValueSerializer = new XmlSerializer(KeyValue.Value.GetType());
-                    StringBuilder SB = new StringBuilder();
-                    using (XmlWriter xw = XmlWriter.Create(SB, new XmlWriterSettings() { OmitXmlDeclaration = true }))
-                        ValueSerializer.Serialize(xw, KeyValue.Value);
-                    ItemElm.InnerXml = SB.ToString();
-                    ItemElm.FirstChild.Attributes.RemoveAll();
+                        var valueSerializer = new XmlSerializer(keyValue.Value.GetType());
+                        var sb = new StringBuilder();
+                        using (var xw = XmlWriter.Create(sb, new XmlWriterSettings {OmitXmlDeclaration = true}))
+                        {
+                            valueSerializer.Serialize(xw, keyValue.Value);
+                        }
 
-                    ConfigElm.AppendChild(ItemElm);
+                        itemElm.InnerXml = sb.ToString();
+                        itemElm.FirstChild.Attributes?.RemoveAll();
+                    }
+
+                    configElm.AppendChild(itemElm);
                 }
                 catch (Exception)
                 {
-                      MessageBox.Show("Unable to save setting '" + KeyValue.Key + "'.");
+                    MessageBox.Show("Unable to save setting '" + keyValue.Key + "'.");
                 }
-            }
 
-            X.AppendChild(ConfigElm);
+            x.AppendChild(configElm);
 
             try
             {
                 //delete from all possible storage locations
-                string GlobalFileName = GetStorageDirectory() + _FileNameWithoutPath;
-                if (File.Exists(GlobalFileName))
-                    File.Delete(GlobalFileName);
-                string LocalFileName = GetStorageDirectory() + _FileNameWithoutPath;
-                if (File.Exists(LocalFileName))
-                    File.Delete(LocalFileName);
+                var globalFileName = GetStorageDirectory() + FileNameWithoutPath;
+                if (File.Exists(globalFileName))
+                    File.Delete(globalFileName);
+                var localFileName = GetStorageDirectory() + FileNameWithoutPath;
+                if (File.Exists(localFileName))
+                    File.Delete(localFileName);
 
                 //now actually save the file 
                 Directory.CreateDirectory(GetStorageDirectory());
-                X.Save(GetStorageDirectory() + _FileNameWithoutPath);
+                x.Save(GetStorageDirectory() + FileNameWithoutPath);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
-                 MessageBox.Show("Unable to save settings to '" +  GetStorageDirectory() + _FileNameWithoutPath + "'.");
+                MessageBox.Show("Unable to save settings to '" + GetStorageDirectory() + FileNameWithoutPath + "'.");
             }
         }
 
         /// <summary>
-        /// Determines if a specified configuration key is found in the current config
+        ///     Determines if a specified configuration key is found in the current config
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
         public static bool HasValue(string key)
         {
-            return _ConfigDict.ContainsKey(key);
+            return ConfigDict.ContainsKey(key);
         }
-
-        /*
-        /// <summary>
-        /// Obtain configuration value
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="DefaultValue"></param>
-        /// <returns></returns>
-        public object GetValue(string key, object DefaultValue)
-        {
-            if (HasValue(key))
-            {
-                object value = _ConfigDict[key];
-                if (DefaultValue == null || value.GetType() == DefaultValue.GetType())
-                    return value;
-            }
-            if (DefaultValue != null) //Doesn't exist yet, so create it
-                SetValue(key, DefaultValue);
-            return DefaultValue;
-        }
-        */
 
         public static T GetValue<T>()
         {
@@ -206,44 +173,33 @@ namespace MylarSideCar.Manager
         {
             if (HasValue(key))
             {
-                object value = _ConfigDict[key];
-                if (value is T)
-                    return (T)value;
+                var value = ConfigDict[key];
+                if (value is T variable)
+                    return variable;
             }
+
             //Doesn't exist yet, so create it
-            T NewValue = Activator.CreateInstance<T>();
-            SetValue( NewValue);
-            return NewValue;
-        }
-
-        /*
-        public void SetValue(object Value)
-        {
-            if (Value != null)
-                SetValue(Value.GetType().Name, Value);
-        }
-        */
-
-        /// <summary>
-        /// Set value in config data
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="Value"></param>
-        public static void SetValue<T>( T Value)
-        {
-            _ConfigDict[typeof(T).Name] = Value;
+            var newValue = Activator.CreateInstance<T>();
+            SetValue(newValue);
+            return newValue;
         }
 
         /// <summary>
-        /// Remove a value from the configuration
+        ///     Set value in config data
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="UserData"></param>
+        /// <param name="value"></param>
+        public static void SetValue<T>(T value)
+        {
+            ConfigDict[typeof(T).Name] = value;
+        }
+
+        /// <summary>
+        ///     Remove a value from the configuration
+        /// </summary>
         public static void RemoveValue<T>()
         {
-            if (_ConfigDict.ContainsKey(typeof( T).Name))
-                _ConfigDict.Remove(typeof(T).Name);
+            if (ConfigDict.ContainsKey(typeof(T).Name))
+                ConfigDict.Remove(typeof(T).Name);
         }
     }
-
 }

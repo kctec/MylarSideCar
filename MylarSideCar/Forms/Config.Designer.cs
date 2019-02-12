@@ -477,7 +477,6 @@
             this.chkSabSsl.TabIndex = 93;
             this.chkSabSsl.Text = "HTTPS";
             this.chkSabSsl.UseVisualStyleBackColor = true;
-            this.chkSabSsl.CheckedChanged += new System.EventHandler(this.chkSabSsl_CheckedChanged);
             // 
             // label13
             // 

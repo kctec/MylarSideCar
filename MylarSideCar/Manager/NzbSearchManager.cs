@@ -33,24 +33,7 @@ namespace MylarSideCar.Manager
                     ConfigManager.Save();
                 }
             }
-
-            if (!string.IsNullOrEmpty(newzNabConfig.NewzNabURL_1) && newzNabConfig.NewzNabEnabled_1)
-            {
-                try
-                {
-                    results.AddRange(NewzNabManager.SearchForIssue(issue, comic, newzNabConfig.NewzNabURL_1,
-                        newzNabConfig.NewzNabApiKey_1, newzNabConfig.NewzNabName_1));
-                }
-                catch
-                {
-                    //disable provider
-                    newzNabConfig.NewzNabEnabled_1 = false;
-                    ConfigManager.SetValue(newzNabConfig);
-                    ConfigManager.Save();
-                }
-            }
-
-
+ 
             if (!string.IsNullOrEmpty(newzNabConfig.NewzNabURL_2) && newzNabConfig.NewzNabEnabled_2)
             {
                 try

@@ -59,11 +59,6 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabComic = new System.Windows.Forms.TabPage();
-            this.imgPublisher = new System.Windows.Forms.PictureBox();
-            this.txtComicTitle = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.webDescription = new System.Windows.Forms.WebBrowser();
-            this.comicImage = new System.Windows.Forms.PictureBox();
             this.tabIssue = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.webIssueDescription = new System.Windows.Forms.WebBrowser();
@@ -79,6 +74,16 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.lstNZBResults = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comicImage = new System.Windows.Forms.PictureBox();
+            this.webComicDescription = new System.Windows.Forms.WebBrowser();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblComicName = new System.Windows.Forms.Label();
+            this.lblComicInfo = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.imgPublisher = new System.Windows.Forms.PictureBox();
+            this.lblPublisher = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -94,15 +99,18 @@
             this.splitContainer2.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabComic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPublisher)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).BeginInit();
             this.tabIssue.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgImage)).BeginInit();
             this.searchTable.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.toolStrip4.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPublisher)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -157,7 +165,7 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cinfToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.settingsToolStripMenuItem.Text = "&Tools";
             // 
             // cinfToolStripMenuItem
@@ -380,10 +388,7 @@
             // 
             // tabComic
             // 
-            this.tabComic.Controls.Add(this.imgPublisher);
-            this.tabComic.Controls.Add(this.txtComicTitle);
-            this.tabComic.Controls.Add(this.groupBox3);
-            this.tabComic.Controls.Add(this.comicImage);
+            this.tabComic.Controls.Add(this.tableLayoutPanel1);
             this.tabComic.Location = new System.Drawing.Point(4, 22);
             this.tabComic.Name = "tabComic";
             this.tabComic.Padding = new System.Windows.Forms.Padding(3);
@@ -391,50 +396,6 @@
             this.tabComic.TabIndex = 0;
             this.tabComic.Text = "comic";
             this.tabComic.UseVisualStyleBackColor = true;
-            // 
-            // imgPublisher
-            // 
-            this.imgPublisher.Location = new System.Drawing.Point(6, 1);
-            this.imgPublisher.Name = "imgPublisher";
-            this.imgPublisher.Size = new System.Drawing.Size(36, 36);
-            this.imgPublisher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgPublisher.TabIndex = 8;
-            this.imgPublisher.TabStop = false;
-            // 
-            // txtComicTitle
-            // 
-            this.txtComicTitle.Location = new System.Drawing.Point(50, 3);
-            this.txtComicTitle.Name = "txtComicTitle";
-            this.txtComicTitle.Size = new System.Drawing.Size(522, 20);
-            this.txtComicTitle.TabIndex = 7;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.webDescription);
-            this.groupBox3.Location = new System.Drawing.Point(364, 30);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(410, 542);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Description:";
-            // 
-            // webDescription
-            // 
-            this.webDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webDescription.Location = new System.Drawing.Point(3, 16);
-            this.webDescription.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webDescription.Name = "webDescription";
-            this.webDescription.Size = new System.Drawing.Size(404, 523);
-            this.webDescription.TabIndex = 0;
-            // 
-            // comicImage
-            // 
-            this.comicImage.Location = new System.Drawing.Point(6, 41);
-            this.comicImage.Name = "comicImage";
-            this.comicImage.Size = new System.Drawing.Size(352, 531);
-            this.comicImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.comicImage.TabIndex = 5;
-            this.comicImage.TabStop = false;
             // 
             // tabIssue
             // 
@@ -566,7 +527,7 @@
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(50, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(51, 22);
             this.toolStripLabel4.Text = "Torrents";
             // 
             // toolStripSeparator5
@@ -585,6 +546,130 @@
             this.lstNZBResults.Name = "lstNZBResults";
             this.lstNZBResults.Size = new System.Drawing.Size(390, 264);
             this.lstNZBResults.TabIndex = 7;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.comicImage, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(774, 573);
+            this.tableLayoutPanel1.TabIndex = 9;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.webComicDescription);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(390, 53);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(381, 530);
+            this.groupBox3.TabIndex = 11;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Description:";
+            // 
+            // comicImage
+            // 
+            this.comicImage.BackColor = System.Drawing.Color.DimGray;
+            this.comicImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comicImage.ImageLocation = "";
+            this.comicImage.Location = new System.Drawing.Point(3, 53);
+            this.comicImage.Name = "comicImage";
+            this.comicImage.Size = new System.Drawing.Size(381, 530);
+            this.comicImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.comicImage.TabIndex = 12;
+            this.comicImage.TabStop = false;
+            // 
+            // webComicDescription
+            // 
+            this.webComicDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webComicDescription.Location = new System.Drawing.Point(3, 16);
+            this.webComicDescription.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webComicDescription.Name = "webComicDescription";
+            this.webComicDescription.Size = new System.Drawing.Size(375, 511);
+            this.webComicDescription.TabIndex = 1;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.lblComicName, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblComicInfo, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(381, 44);
+            this.tableLayoutPanel2.TabIndex = 13;
+            // 
+            // lblComicName
+            // 
+            this.lblComicName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblComicName.AutoSize = true;
+            this.lblComicName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComicName.Location = new System.Drawing.Point(3, 0);
+            this.lblComicName.Name = "lblComicName";
+            this.lblComicName.Size = new System.Drawing.Size(375, 19);
+            this.lblComicName.TabIndex = 0;
+            // 
+            // lblComicInfo
+            // 
+            this.lblComicInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblComicInfo.AutoSize = true;
+            this.lblComicInfo.Location = new System.Drawing.Point(3, 22);
+            this.lblComicInfo.Name = "lblComicInfo";
+            this.lblComicInfo.Size = new System.Drawing.Size(375, 13);
+            this.lblComicInfo.TabIndex = 1;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel3.Controls.Add(this.imgPublisher, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lblPublisher, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(390, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(381, 44);
+            this.tableLayoutPanel3.TabIndex = 14;
+            // 
+            // imgPublisher
+            // 
+            this.imgPublisher.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imgPublisher.Location = new System.Drawing.Point(324, 3);
+            this.imgPublisher.Name = "imgPublisher";
+            this.imgPublisher.Size = new System.Drawing.Size(54, 41);
+            this.imgPublisher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgPublisher.TabIndex = 10;
+            this.imgPublisher.TabStop = false;
+            // 
+            // lblPublisher
+            // 
+            this.lblPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPublisher.AutoSize = true;
+            this.lblPublisher.Location = new System.Drawing.Point(3, 0);
+            this.lblPublisher.Name = "lblPublisher";
+            this.lblPublisher.Size = new System.Drawing.Size(315, 47);
+            this.lblPublisher.TabIndex = 11;
+            this.lblPublisher.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Main
             // 
@@ -618,10 +703,6 @@
             this.splitContainer2.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabComic.ResumeLayout(false);
-            this.tabComic.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPublisher)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).EndInit();
             this.tabIssue.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgImage)).EndInit();
@@ -631,6 +712,14 @@
             this.toolStrip3.PerformLayout();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPublisher)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -668,8 +757,6 @@
         private System.Windows.Forms.TableLayoutPanel searchTable;
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStrip toolStrip4;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.PictureBox comicImage;
         private System.Windows.Forms.ListBox listIssues;
         private System.Windows.Forms.TabPage tabSearch;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
@@ -680,12 +767,19 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ListBox lstNZBResults;
         private System.Windows.Forms.ToolStripButton btnRefreshData;
-        private System.Windows.Forms.WebBrowser webDescription;
-        private System.Windows.Forms.PictureBox imgPublisher;
-        private System.Windows.Forms.TextBox txtComicTitle;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.WebBrowser webIssueDescription;
         private System.Windows.Forms.PictureBox imgImage;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.PictureBox comicImage;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.WebBrowser webComicDescription;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label lblComicName;
+        private System.Windows.Forms.Label lblComicInfo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.PictureBox imgPublisher;
+        private System.Windows.Forms.Label lblPublisher;
     }
 }
 

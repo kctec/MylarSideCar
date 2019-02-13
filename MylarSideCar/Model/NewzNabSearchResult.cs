@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using System.Text.RegularExpressions;
 
 namespace MylarSideCar.Model
 {
-
-
     public class NewzNabSearchResult
     {
         public string Title { get; set; }
@@ -23,12 +17,6 @@ namespace MylarSideCar.Model
 
         public string Provider { get; set; }
 
-        public string BindingName
-        {
-            get {
-                return Title + " - [" + Category + "] - " + PublishDate + " - ("+ Provider + ")";
-            }
-        }
-       
+        public string BindingName => Title + " - ("+ Provider + ")";
     }
 }

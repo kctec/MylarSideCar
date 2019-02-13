@@ -18,6 +18,13 @@ namespace MylarSideCar.Forms
 
         private void BindData()
         {
+            if (ConfigManager.HasValue<ComicVineConfig>())
+            {
+                var comicVineConfig = ConfigManager.GetConfig<ComicVineConfig>();
+                txtComicVineApiKey.Text = comicVineConfig.ApiKey;
+
+            }
+
             if (ConfigManager.HasValue<SabConfig>())
             {
                 var sabConfig = ConfigManager.GetConfig<SabConfig>();
@@ -94,6 +101,17 @@ namespace MylarSideCar.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             ConfigManager.Save();
+            if (!string.IsNullOrEmpty(txtComicVineApiKey.Text))
+            {
+                var comicVineConfig = new ComicVineConfig()
+                {
+                    ApiKey = txtComicVineApiKey.Text
+                };
+
+                ConfigManager.SetConfigValue(comicVineConfig);
+
+            }
+
 
             if (!string.IsNullOrEmpty(txtAPIkey.Text))
             {
@@ -112,7 +130,7 @@ namespace MylarSideCar.Forms
                         sabConfig.Port = int.Parse(txtSabPort.Text);
                 }
 
-                ConfigManager.SetValue(sabConfig);
+                ConfigManager.SetConfigValue(sabConfig);
             }
             if (!string.IsNullOrEmpty(txtMylarApiKey.Text))
             {
@@ -124,7 +142,7 @@ namespace MylarSideCar.Forms
                     Password = txtMylarPassword.Text
                 };
 
-                ConfigManager.SetValue(mylarConfig);
+                ConfigManager.SetConfigValue(mylarConfig);
             }
 
             if (!string.IsNullOrEmpty(txtTorzNabHost1.Text) || !string.IsNullOrEmpty(txtTorzNabHost2.Text) ||
@@ -153,7 +171,7 @@ namespace MylarSideCar.Forms
 
 
 
-                ConfigManager.SetValue(torzNabConfig);
+                ConfigManager.SetConfigValue(torzNabConfig);
             }
 
             if (!string.IsNullOrEmpty(txtNewzHost1.Text) || !string.IsNullOrEmpty(txtNewzHost2.Text) ||
@@ -179,7 +197,7 @@ namespace MylarSideCar.Forms
                     NewzNabEnabled_4 = chkNewzNabEnabled4.Checked
                 };
  
-                ConfigManager.SetValue(newzNabConfig);
+                ConfigManager.SetConfigValue(newzNabConfig);
 
             }
 

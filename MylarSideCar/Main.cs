@@ -16,6 +16,7 @@ namespace MylarSideCar
         private ComicMaster _currentComic = new ComicMaster();
         private CvVolumeResponse _currentVolume;
         private List<NewzNabSearchResult> _nzbResults;
+        private List<TorzNabResult> _torzNabResults;
         private List<Title> _titles;
 
         public Main()
@@ -216,16 +217,19 @@ namespace MylarSideCar
         {
             _currentComic = MylarManager.GetComic(title.ComicID);
             comicImage.Image = ImageCacheManager.GetImage(_currentComic.Comics[0].ComicImageURL);
-
+            lblComicName.Text = _currentComic.Comics[0].ComicName; 
 
             _currentVolume = ComicVineManager.GetVolume(title.ComicID);
-            webDescription.DocumentText = "0";
-            webDescription.Document.OpenNew(true);
-            webDescription.Document.Write(_currentVolume.Volume.Description);
-            webDescription.Refresh();
+            lblComicName.Text += @"  (" + _currentVolume.Volume.StartYear + @")";
+
+            webComicDescription.DocumentText = "0";
+            webComicDescription.Document.OpenNew(true);
+            webComicDescription.Document.Write(_currentVolume.Volume.Description);
+            webComicDescription.Refresh();
 
             var pub = ComicVineManager.GetPublisher(_currentVolume.Volume.Publisher.Id);
             imgPublisher.Image = ImageCacheManager.GetImage(pub.Publisher.Image.IconUrl);
+
         }
 
         private void BindIssues()
@@ -255,7 +259,8 @@ namespace MylarSideCar
             _nzbResults = NzbSearchManager.SearchForIssue((Issue) listIssues.SelectedItem, _currentComic.Comics[0]);
             lstNZBResults.Items.Clear();
             foreach (var result in _nzbResults) lstNZBResults.Items.Add(result);
-
+            _torzNabResults =
+                TorzNabSearchManager.SearchForIssue((Issue) listIssues.SelectedItem, _currentComic.Comics[0]);
             if (_nzbResults == null || _nzbResults.Count == 0)
                 SetStatus("No Results found");
             else

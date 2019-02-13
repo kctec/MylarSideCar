@@ -46,7 +46,7 @@ namespace MylarSideCar.Manager
             }
             catch (Exception e)
             {
-                MessageBox.Show("Unable to load settings.\r\n\r\n" + e.Message, "NzbSearcher");
+                MessageBox.Show(@"Unable to load settings.\r\n\r\n" + e.Message, @"NzbSearcher");
             }
 
 
@@ -127,9 +127,9 @@ namespace MylarSideCar.Manager
 
                     configElm.AppendChild(itemElm);
                 }
-                catch (Exception e)
+                catch
                 {
-                    MessageBox.Show("Unable to save setting '" + keyValue.Key + "'.");
+                    MessageBox.Show(@"Unable to save setting '" + keyValue.Key + @"'.");
                 }
 
             x.AppendChild(configElm);
@@ -150,7 +150,7 @@ namespace MylarSideCar.Manager
             }
             catch (Exception)
             {
-                MessageBox.Show("Unable to save settings to '" + GetStorageDirectory() + FileNameWithoutPath + "'.");
+                MessageBox.Show(@"Unable to save settings to '" + GetStorageDirectory() + FileNameWithoutPath + @"'.");
             }
         }
 
@@ -180,7 +180,7 @@ namespace MylarSideCar.Manager
 
             //Doesn't exist yet, so create it
             var newValue = Activator.CreateInstance<T>();
-            SetValue(newValue);
+            SetConfigValue(newValue);
             return newValue;
         }
 
@@ -188,7 +188,7 @@ namespace MylarSideCar.Manager
         ///     Set value in config data
         /// </summary>
         /// <param name="value"></param>
-        public static void SetValue<T>(T value)
+        public static void SetConfigValue<T>(T value)
         {
             ConfigDict[typeof(T).Name] = value;
         }

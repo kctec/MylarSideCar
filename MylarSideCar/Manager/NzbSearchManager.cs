@@ -29,7 +29,7 @@ namespace MylarSideCar.Manager
                 {
                     //disable provider
                     newzNabConfig.NewzNabEnabled_1 = false;
-                    ConfigManager.SetValue(newzNabConfig);
+                    ConfigManager.SetConfigValue(newzNabConfig);
                     ConfigManager.Save();
                 }
             }
@@ -45,7 +45,7 @@ namespace MylarSideCar.Manager
                 {
                     //disable provider
                     newzNabConfig.NewzNabEnabled_1 = false;
-                    ConfigManager.SetValue(newzNabConfig);
+                    ConfigManager.SetConfigValue(newzNabConfig);
                     ConfigManager.Save();
                 }
             }
@@ -61,7 +61,7 @@ namespace MylarSideCar.Manager
                 {
                     //disable provider
                     newzNabConfig.NewzNabEnabled_3 = false;
-                    ConfigManager.SetValue(newzNabConfig);
+                    ConfigManager.SetConfigValue(newzNabConfig);
                     ConfigManager.Save();
                 }
             }
@@ -77,7 +77,7 @@ namespace MylarSideCar.Manager
                 {
                     //disable provider
                     newzNabConfig.NewzNabEnabled_4 = false;
-                    ConfigManager.SetValue(newzNabConfig);
+                    ConfigManager.SetConfigValue(newzNabConfig);
                     ConfigManager.Save();
                 }
             }

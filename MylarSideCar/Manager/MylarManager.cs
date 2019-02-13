@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using MylarSideCar.Manager.Configs;
 using MylarSideCar.Model;
 using Newtonsoft.Json;
@@ -24,6 +25,7 @@ namespace MylarSideCar.Manager
 
         public static List<Title> GetTitles()
         {
+
             if (!ConfigManager.HasValue<MylarConfig>()) return null;
             var request = new RestRequest("/", Method.GET);
             request.AddParameter("apikey", GetConfig().APIkey);
@@ -31,11 +33,16 @@ namespace MylarSideCar.Manager
 
             var response = GetRestClient().Execute(request);
             var content = response.Content;
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                return null;
+            }
 
             var jsonSerializerSettings = new JsonSerializerSettings();
             jsonSerializerSettings.MissingMemberHandling = MissingMemberHandling.Ignore;
 
             return JsonConvert.DeserializeObject<List<Title>>(content, jsonSerializerSettings);
+
 
         }
 

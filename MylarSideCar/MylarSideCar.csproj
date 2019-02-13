@@ -95,6 +95,7 @@
     <Compile Include="Manager\NewzNab\NewzNabQuery.cs" />
     <Compile Include="Manager\NewzNab\NzbItem.cs" />
     <Compile Include="Manager\SabnzbdManager.cs" />
+    <Compile Include="Manager\TorzNabSearchManager.cs" />
     <Compile Include="Model\ComicVine\CvImage.cs" />
     <Compile Include="Model\ComicVine\CvIssue.cs" />
     <Compile Include="Model\ComicVine\CvObject.cs" />
@@ -119,7 +120,7 @@
     <Compile Include="Model\Issue.cs" />
     <Compile Include="Model\Title.cs" />
     <Compile Include="Manager\TitleParsingManager.cs" />
-    <Compile Include="Model\TorzNabSearchResult.cs" />
+    <Compile Include="Model\TorzNabResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Config.resx">

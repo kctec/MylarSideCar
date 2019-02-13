@@ -6,8 +6,12 @@ namespace MylarSideCar.Manager
 {
     public class NzbSearchManager
     {
+        public static List<NewzNabSearchResult> Search(  Comic comic)
+        {
+            return Search(null, comic);
+        }
 
-        public static List<NewzNabSearchResult> SearchForIssue(Issue issue, Comic comic)
+        public static List<NewzNabSearchResult> Search(Issue issue, Comic comic)
         {
             var results = new List<NewzNabSearchResult>();
 

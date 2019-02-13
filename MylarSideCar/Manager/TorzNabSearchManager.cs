@@ -11,7 +11,13 @@ namespace MylarSideCar.Manager
     public class TorzNabSearchManager
     {
 
-        public static List<TorzNabResult> SearchForIssue(Issue issue, Comic comic)
+        public static List<TorzNabResult> Search( Comic comic)
+        {
+            return Search(null, comic);
+        }
+   
+
+    public static List<TorzNabResult> Search(Issue issue, Comic comic)
         {
             var results = new List<TorzNabResult>();
 

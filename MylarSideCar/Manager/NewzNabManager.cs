@@ -20,6 +20,12 @@ namespace MylarSideCar.Manager
             return new NewzNabSource(host, true, apiKey);
         }
 
+        public static List<NewzNabSearchResult> SearchForIssue(Comic comic, string host, string apiKey,
+            string name)
+        {
+            return SearchForIssue(null, comic, host, apiKey, name);
+        }
+
         public static List<NewzNabSearchResult> SearchForIssue(Issue issue, Comic comic, string host, string apiKey, string name)
         {
             var query = new NewzNabQuery {RequestedFunction = Functions.Search};

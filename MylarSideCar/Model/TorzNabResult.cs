@@ -9,8 +9,17 @@ namespace MylarSideCar.Model
     [Serializable]
     public class TorzNabResult
     {
+
+        public List<string> Categories { get; set; }
+
         [Newtonsoft.Json.JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "files")]
+        public string Files { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "guid")]
         public string Guid { get; set; }
@@ -33,5 +42,16 @@ namespace MylarSideCar.Model
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "link")]
         public string Link { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "seeders")]
+        public string Seeders { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "peers")]
+        public string Peers { get; set; }
+ 
+
+        public string BindingName =>  "(" + Seeders +"/" + Peers + ") - " + Title + " - (" + JackettIndexer + ")";
+
+
     }
 }

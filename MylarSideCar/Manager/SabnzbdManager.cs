@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Windows.Forms.VisualStyles;
 using MylarSideCar.Manager.Sabnzbd;
 using MylarSideCar.Model;
@@ -7,8 +8,8 @@ namespace MylarSideCar.Manager
 {
  
     public class SabnzbdManager
-    {
- 
+    { 
+
         public static void UploadNzb(NewzNabSearchResult result, Issue issue, Comic comic)
         {
             if (!ConfigManager.HasValue<SabConfig>())
@@ -26,7 +27,17 @@ namespace MylarSideCar.Manager
 
             var client = new SabnzbdClient(sabConfig.HostUrl,ushort.Parse( sabConfig.Port.ToString()),sabConfig.ApIkey,sabConfig.Root,sabConfig.Https);
 
-            client.AddQueue(result.NZBUrl, comic.ComicName_Filesafe.Replace(" ","_") + "_" + issue.Issue_Number, "comics");
+            if (issue != null)
+            {
+                client.AddQueue(result.NZBUrl, comic.ComicName_Filesafe.Replace(" ", "_") + "_" + issue.Issue_Number, "comics");
+
+            }
+            else
+            {
+                var random = new Random();
+                client.AddQueue(result.NZBUrl, comic.ComicName_Filesafe.Replace(" ", "_") + result.Provider + random.Next(0, 9999).ToString("D4"), "comics");
+            }
+
 
         }
          

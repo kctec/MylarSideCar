@@ -10,6 +10,10 @@ namespace MylarSideCar.Manager
 {
     public class TitleParsingManager
     {
+        public static bool TitleMatch(string title, Comic comic)
+        {
+            return TitleMatch(title, null, comic);
+        }
 
         public static bool TitleMatch(string title, Issue issue, Comic comic)
         {
@@ -17,13 +21,19 @@ namespace MylarSideCar.Manager
 
             //check for comic name 
             var values = fixedTitle.Split(char.Parse(" "));
- 
-            if (!title.Contains(comic.ComicYear.ToString()))
+
+            if (issue == null) return values.All(value => title.ToLower().Contains(value.ToLower()));
             {
-                return false;
+                if (!title.Contains(comic.ComicYear.ToString()))
+                {
+                    return false;
+                }
+
+                return title.Replace(comic.ComicYear.ToString(), "").Contains(issue.Issue_Number) &&
+                       values.All(value => title.ToLower().Contains(value.ToLower()));
             }
 
-            return title.Replace(comic.ComicYear.ToString(), "").Contains(issue.Issue_Number) && values.All(value => title.ToLower().Contains(value.ToLower()));
         }
+
     }
 }

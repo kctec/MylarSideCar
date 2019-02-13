@@ -255,22 +255,52 @@ namespace MylarSideCar
 
         private void btnSearchIssue_Click(object sender, EventArgs e)
         {
-            SetStatus("Searching ...");
-            _nzbResults = NzbSearchManager.SearchForIssue((Issue) listIssues.SelectedItem, _currentComic.Comics[0]);
+
+            if (listIssues.SelectedIndex < 0) return;
             lstNZBResults.Items.Clear();
-            foreach (var result in _nzbResults) lstNZBResults.Items.Add(result);
+            lstTorrentResults.Items.Clear();
+
+            SetStatus("Searching ...");
+
+            _nzbResults = NzbSearchManager.Search((Issue) listIssues.SelectedItem, _currentComic.Comics[0]);
             _torzNabResults =
-                TorzNabSearchManager.SearchForIssue((Issue) listIssues.SelectedItem, _currentComic.Comics[0]);
-            if (_nzbResults == null || _nzbResults.Count == 0)
+                TorzNabSearchManager.Search((Issue)listIssues.SelectedItem, _currentComic.Comics[0]);
+
+            foreach (var result in _nzbResults) lstNZBResults.Items.Add(result);
+            foreach (var result in _torzNabResults) lstTorrentResults.Items.Add(result);
+
+            if ((_nzbResults == null || _nzbResults.Count == 0) && (_torzNabResults == null || _torzNabResults.Count == 0))
                 SetStatus("No Results found");
             else
-                SetStatus("Search Complete - " + _nzbResults.Count + " results found");
+                SetStatus("Search Complete - " +  (_nzbResults.Count + _torzNabResults.Count)   + " results found");
         }
 
         private void btnSendToSab_Click(object sender, EventArgs e)
         {
             var result = (NewzNabSearchResult) lstNZBResults.SelectedItem;
             SabnzbdManager.UploadNzb(result, (Issue) listIssues.SelectedItem, _currentComic.Comics[0]);
+        }
+
+        private void btnSearchComic_Click(object sender, EventArgs e)
+        {
+
+            if (lstComics.SelectedIndex < 0) return;
+            lstTorrentResults.Items.Clear();
+            lstNZBResults.Items.Clear();
+
+            SetStatus("Searching ...");
+
+            _nzbResults = NzbSearchManager.Search( _currentComic.Comics[0]);
+            _torzNabResults =
+                TorzNabSearchManager.Search(_currentComic.Comics[0]);
+
+            foreach (var result in _nzbResults) lstNZBResults.Items.Add(result);
+            foreach (var result in _torzNabResults) lstTorrentResults.Items.Add(result);
+
+            if ((_nzbResults == null || _nzbResults.Count == 0) && (_torzNabResults == null || _torzNabResults.Count == 0))
+                SetStatus("No Results found");
+            else
+                SetStatus("Search Complete - " + (_nzbResults.Count + _torzNabResults.Count) + " results found");
         }
     }
 }

@@ -31,120 +31,129 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cinfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tabPanelComics = new System.Windows.Forms.TableLayoutPanel();
+            this.splitContainerMain = new System.Windows.Forms.SplitContainer();
+            this.splitComicIssueDetails = new System.Windows.Forms.SplitContainer();
             this.lstComics = new System.Windows.Forms.ListBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripComics = new System.Windows.Forms.ToolStrip();
+            this.lblToolStripComic = new System.Windows.Forms.ToolStripLabel();
+            this.sepToolStripComkics1 = new System.Windows.Forms.ToolStripSeparator();
             this.txtComicFilter = new System.Windows.Forms.ToolStripTextBox();
-            this.btnFilterComics = new System.Windows.Forms.ToolStripButton();
             this.btnSearchComic = new System.Windows.Forms.ToolStripButton();
             this.btnRefreshData = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.lstIssues = new System.Windows.Forms.ListBox();
+            this.toolStripIssues = new System.Windows.Forms.ToolStrip();
+            this.lblToolStripIssues = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnMissing = new System.Windows.Forms.ToolStripButton();
             this.btnDownloaded = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.sepToolStripIssues2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSearchIssue = new System.Windows.Forms.ToolStripButton();
-            this.listIssues = new System.Windows.Forms.ListBox();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.tabMain = new System.Windows.Forms.TabControl();
-            this.tabComic = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.comicImage = new System.Windows.Forms.PictureBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.webComicDescription = new System.Windows.Forms.WebBrowser();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblComicName = new System.Windows.Forms.Label();
+            this.splitDetailsSearch = new System.Windows.Forms.SplitContainer();
+            this.splitMain = new System.Windows.Forms.SplitContainer();
             this.lblComicInfo = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblComicName = new System.Windows.Forms.Label();
             this.imgPublisher = new System.Windows.Forms.PictureBox();
-            this.lblPublisher = new System.Windows.Forms.Label();
-            this.tabIssue = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.webIssueDescription = new System.Windows.Forms.WebBrowser();
-            this.imgImage = new System.Windows.Forms.PictureBox();
-            this.tabSearch = new System.Windows.Forms.TabPage();
-            this.searchTable = new System.Windows.Forms.TableLayoutPanel();
-            this.lstTorrentResults = new System.Windows.Forms.ListBox();
-            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.splitSearch = new System.Windows.Forms.SplitContainer();
+            this.lstNZBResults = new System.Windows.Forms.ListBox();
+            this.toolStripNzb = new System.Windows.Forms.ToolStrip();
+            this.lblToolStripNzb = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSendToSab = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.txtNzbResultsFilter = new System.Windows.Forms.ToolStripTextBox();
+            this.lstTorrentResults = new System.Windows.Forms.ListBox();
+            this.toolStripTorrent = new System.Windows.Forms.ToolStrip();
+            this.lblToolStripTorrents = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.lstNZBResults = new System.Windows.Forms.ListBox();
             this.btnAddToRTorrnt = new System.Windows.Forms.ToolStripButton();
+            this.grpComicDescription = new System.Windows.Forms.GroupBox();
+            this.webComicDescription = new System.Windows.Forms.WebBrowser();
+            this.comicImage = new System.Windows.Forms.PictureBox();
+            this.tabSearch = new System.Windows.Forms.TabPage();
+            this.tabComic = new System.Windows.Forms.TabPage();
+            this.splitImageDescription = new System.Windows.Forms.SplitContainer();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.webDetails = new System.Windows.Forms.WebBrowser();
+            this.tabMain = new System.Windows.Forms.TabControl();
+            this.imgDetail = new System.Windows.Forms.PictureBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtTorrentFilter = new System.Windows.Forms.ToolStripTextBox();
             this.statusStrip.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.tabPanelComics.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            this.tabMain.SuspendLayout();
-            this.tabComic.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.menuStripMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
+            this.splitContainerMain.Panel1.SuspendLayout();
+            this.splitContainerMain.Panel2.SuspendLayout();
+            this.splitContainerMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitComicIssueDetails)).BeginInit();
+            this.splitComicIssueDetails.Panel1.SuspendLayout();
+            this.splitComicIssueDetails.Panel2.SuspendLayout();
+            this.splitComicIssueDetails.SuspendLayout();
+            this.toolStripComics.SuspendLayout();
+            this.toolStripIssues.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitDetailsSearch)).BeginInit();
+            this.splitDetailsSearch.Panel1.SuspendLayout();
+            this.splitDetailsSearch.Panel2.SuspendLayout();
+            this.splitDetailsSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
+            this.splitMain.Panel1.SuspendLayout();
+            this.splitMain.Panel2.SuspendLayout();
+            this.splitMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPublisher)).BeginInit();
-            this.tabIssue.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitSearch)).BeginInit();
+            this.splitSearch.Panel1.SuspendLayout();
+            this.splitSearch.Panel2.SuspendLayout();
+            this.splitSearch.SuspendLayout();
+            this.toolStripNzb.SuspendLayout();
+            this.toolStripTorrent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).BeginInit();
+            this.tabComic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitImageDescription)).BeginInit();
+            this.splitImageDescription.Panel1.SuspendLayout();
+            this.splitImageDescription.Panel2.SuspendLayout();
+            this.splitImageDescription.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgImage)).BeginInit();
-            this.searchTable.SuspendLayout();
-            this.toolStrip3.SuspendLayout();
-            this.toolStrip4.SuspendLayout();
+            this.tabMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLabel});
+            this.lblStatus});
             this.statusStrip.Location = new System.Drawing.Point(0, 629);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1630, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1331, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip";
             // 
-            // statusLabel
+            // lblStatus
             // 
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(48, 17);
-            this.statusLabel.Text = "ready ...";
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(48, 17);
+            this.lblStatus.Text = "ready ...";
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // menuStrip1
+            // menuStripMain
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.settingsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1630, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripMain.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMain.Name = "menuStripMain";
+            this.menuStripMain.Size = new System.Drawing.Size(1331, 24);
+            this.menuStripMain.TabIndex = 4;
+            this.menuStripMain.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -166,7 +175,7 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cinfToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.settingsToolStripMenuItem.Text = "&Tools";
             // 
             // cinfToolStripMenuItem
@@ -176,96 +185,84 @@
             this.cinfToolStripMenuItem.Text = "&Configuration";
             this.cinfToolStripMenuItem.Click += new System.EventHandler(this.CinfToolStripMenuItem_Click);
             // 
-            // splitContainer1
+            // splitContainerMain
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 24);
-            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerMain.Location = new System.Drawing.Point(0, 24);
+            this.splitContainerMain.Name = "splitContainerMain";
             // 
-            // splitContainer1.Panel1
+            // splitContainerMain.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.tabPanelComics);
+            this.splitContainerMain.Panel1.Controls.Add(this.splitComicIssueDetails);
             // 
-            // splitContainer1.Panel2
+            // splitContainerMain.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1630, 605);
-            this.splitContainer1.SplitterDistance = 438;
-            this.splitContainer1.TabIndex = 5;
+            this.splitContainerMain.Panel2.Controls.Add(this.splitDetailsSearch);
+            this.splitContainerMain.Size = new System.Drawing.Size(1331, 605);
+            this.splitContainerMain.SplitterDistance = 357;
+            this.splitContainerMain.TabIndex = 5;
             // 
-            // tabPanelComics
+            // splitComicIssueDetails
             // 
-            this.tabPanelComics.ColumnCount = 1;
-            this.tabPanelComics.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tabPanelComics.Controls.Add(this.lstComics, 0, 1);
-            this.tabPanelComics.Controls.Add(this.toolStrip1, 0, 0);
-            this.tabPanelComics.Controls.Add(this.toolStrip2, 0, 2);
-            this.tabPanelComics.Controls.Add(this.listIssues, 0, 3);
-            this.tabPanelComics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPanelComics.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tabPanelComics.Location = new System.Drawing.Point(0, 0);
-            this.tabPanelComics.Name = "tabPanelComics";
-            this.tabPanelComics.RowCount = 4;
-            this.tabPanelComics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tabPanelComics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabPanelComics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tabPanelComics.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabPanelComics.Size = new System.Drawing.Size(438, 605);
-            this.tabPanelComics.TabIndex = 0;
+            this.splitComicIssueDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitComicIssueDetails.Location = new System.Drawing.Point(0, 0);
+            this.splitComicIssueDetails.Name = "splitComicIssueDetails";
+            this.splitComicIssueDetails.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitComicIssueDetails.Panel1
+            // 
+            this.splitComicIssueDetails.Panel1.Controls.Add(this.lstComics);
+            this.splitComicIssueDetails.Panel1.Controls.Add(this.toolStripComics);
+            // 
+            // splitComicIssueDetails.Panel2
+            // 
+            this.splitComicIssueDetails.Panel2.Controls.Add(this.lstIssues);
+            this.splitComicIssueDetails.Panel2.Controls.Add(this.toolStripIssues);
+            this.splitComicIssueDetails.Size = new System.Drawing.Size(357, 605);
+            this.splitComicIssueDetails.SplitterDistance = 239;
+            this.splitComicIssueDetails.TabIndex = 0;
             // 
             // lstComics
             // 
-            this.lstComics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstComics.DisplayMember = "BindingName";
+            this.lstComics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstComics.FormattingEnabled = true;
-            this.lstComics.Location = new System.Drawing.Point(3, 33);
+            this.lstComics.Location = new System.Drawing.Point(0, 25);
             this.lstComics.Name = "lstComics";
-            this.lstComics.Size = new System.Drawing.Size(432, 264);
-            this.lstComics.TabIndex = 6;
+            this.lstComics.Size = new System.Drawing.Size(357, 214);
+            this.lstComics.TabIndex = 9;
             // 
-            // toolStrip1
+            // toolStripComics
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.toolStripSeparator2,
+            this.toolStripComics.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblToolStripComic,
+            this.sepToolStripComkics1,
             this.txtComicFilter,
-            this.btnFilterComics,
             this.btnSearchComic,
             this.btnRefreshData});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(438, 25);
-            this.toolStrip1.TabIndex = 7;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStripComics.Location = new System.Drawing.Point(0, 0);
+            this.toolStripComics.Name = "toolStripComics";
+            this.toolStripComics.Size = new System.Drawing.Size(357, 25);
+            this.toolStripComics.TabIndex = 8;
+            this.toolStripComics.Text = "toolStrip1";
             // 
-            // toolStripLabel1
+            // lblToolStripComic
             // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(47, 22);
-            this.toolStripLabel1.Text = "&Comics";
+            this.lblToolStripComic.Name = "lblToolStripComic";
+            this.lblToolStripComic.Size = new System.Drawing.Size(47, 22);
+            this.lblToolStripComic.Text = "&Comics";
             // 
-            // toolStripSeparator2
+            // sepToolStripComkics1
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.sepToolStripComkics1.Name = "sepToolStripComkics1";
+            this.sepToolStripComkics1.Size = new System.Drawing.Size(6, 25);
             // 
             // txtComicFilter
             // 
             this.txtComicFilter.Name = "txtComicFilter";
             this.txtComicFilter.Size = new System.Drawing.Size(200, 25);
-            // 
-            // btnFilterComics
-            // 
-            this.btnFilterComics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnFilterComics.Image = ((System.Drawing.Image)(resources.GetObject("btnFilterComics.Image")));
-            this.btnFilterComics.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFilterComics.Name = "btnFilterComics";
-            this.btnFilterComics.Size = new System.Drawing.Size(23, 22);
-            this.btnFilterComics.Text = "&Filter";
-            this.btnFilterComics.ToolTipText = "Filter Resullts";
-            this.btnFilterComics.Click += new System.EventHandler(this.BtnFilterComics_Click);
+            this.txtComicFilter.Leave += new System.EventHandler(this.txtComicFilter_Leave);
+            this.txtComicFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtComicFilter_KeyDown);
             // 
             // btnSearchComic
             // 
@@ -288,26 +285,36 @@
             this.btnRefreshData.Text = "toolStripButton2";
             this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
             // 
-            // toolStrip2
+            // lstIssues
             // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel2,
+            this.lstIssues.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstIssues.FormattingEnabled = true;
+            this.lstIssues.Location = new System.Drawing.Point(0, 25);
+            this.lstIssues.Name = "lstIssues";
+            this.lstIssues.Size = new System.Drawing.Size(357, 337);
+            this.lstIssues.TabIndex = 10;
+            this.lstIssues.SelectedIndexChanged += new System.EventHandler(this.ListIssues_SelectedIndexChanged);
+            // 
+            // toolStripIssues
+            // 
+            this.toolStripIssues.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblToolStripIssues,
             this.toolStripSeparator3,
             this.btnMissing,
             this.btnDownloaded,
-            this.toolStripSeparator1,
+            this.sepToolStripIssues2,
             this.btnSearchIssue});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 302);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(438, 25);
-            this.toolStrip2.TabIndex = 8;
-            this.toolStrip2.Text = "toolStrip2";
+            this.toolStripIssues.Location = new System.Drawing.Point(0, 0);
+            this.toolStripIssues.Name = "toolStripIssues";
+            this.toolStripIssues.Size = new System.Drawing.Size(357, 25);
+            this.toolStripIssues.TabIndex = 9;
+            this.toolStripIssues.Text = "toolStrip2";
             // 
-            // toolStripLabel2
+            // lblToolStripIssues
             // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(38, 22);
-            this.toolStripLabel2.Text = "Issues";
+            this.lblToolStripIssues.Name = "lblToolStripIssues";
+            this.lblToolStripIssues.Size = new System.Drawing.Size(38, 22);
+            this.lblToolStripIssues.Text = "Issues";
             // 
             // toolStripSeparator3
             // 
@@ -334,10 +341,10 @@
             this.btnDownloaded.Text = "toolStripButton2";
             this.btnDownloaded.ToolTipText = "Downloaded Issues";
             // 
-            // toolStripSeparator1
+            // sepToolStripIssues2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.sepToolStripIssues2.Name = "sepToolStripIssues2";
+            this.sepToolStripIssues2.Size = new System.Drawing.Size(6, 25);
             // 
             // btnSearchIssue
             // 
@@ -350,120 +357,57 @@
             this.btnSearchIssue.ToolTipText = "Seach For Issue";
             this.btnSearchIssue.Click += new System.EventHandler(this.btnSearchIssue_Click);
             // 
-            // listIssues
+            // splitDetailsSearch
             // 
-            this.listIssues.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listIssues.FormattingEnabled = true;
-            this.listIssues.Location = new System.Drawing.Point(3, 335);
-            this.listIssues.Name = "listIssues";
-            this.listIssues.Size = new System.Drawing.Size(432, 267);
-            this.listIssues.TabIndex = 9;
+            this.splitDetailsSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitDetailsSearch.Location = new System.Drawing.Point(0, 0);
+            this.splitDetailsSearch.Name = "splitDetailsSearch";
             // 
-            // splitContainer2
+            // splitDetailsSearch.Panel1
             // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
+            this.splitDetailsSearch.Panel1.Controls.Add(this.splitMain);
             // 
-            // splitContainer2.Panel1
+            // splitDetailsSearch.Panel2
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.tabMain);
+            this.splitDetailsSearch.Panel2.Controls.Add(this.splitSearch);
+            this.splitDetailsSearch.Size = new System.Drawing.Size(970, 605);
+            this.splitDetailsSearch.SplitterDistance = 622;
+            this.splitDetailsSearch.TabIndex = 2;
             // 
-            // splitContainer2.Panel2
+            // splitMain
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.searchTable);
-            this.splitContainer2.Size = new System.Drawing.Size(1188, 605);
-            this.splitContainer2.SplitterDistance = 788;
-            this.splitContainer2.TabIndex = 0;
+            this.splitMain.BackColor = System.Drawing.Color.White;
+            this.splitMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitMain.IsSplitterFixed = true;
+            this.splitMain.Location = new System.Drawing.Point(0, 0);
+            this.splitMain.Name = "splitMain";
+            this.splitMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // tabMain
+            // splitMain.Panel1
             // 
-            this.tabMain.Controls.Add(this.tabComic);
-            this.tabMain.Controls.Add(this.tabIssue);
-            this.tabMain.Controls.Add(this.tabSearch);
-            this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabMain.Location = new System.Drawing.Point(0, 0);
-            this.tabMain.Name = "tabMain";
-            this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(788, 605);
-            this.tabMain.TabIndex = 0;
+            this.splitMain.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitMain.Panel1.Controls.Add(this.lblComicInfo);
+            this.splitMain.Panel1.Controls.Add(this.lblComicName);
+            this.splitMain.Panel1.Controls.Add(this.imgPublisher);
             // 
-            // tabComic
+            // splitMain.Panel2
             // 
-            this.tabComic.Controls.Add(this.tableLayoutPanel1);
-            this.tabComic.Location = new System.Drawing.Point(4, 22);
-            this.tabComic.Name = "tabComic";
-            this.tabComic.Padding = new System.Windows.Forms.Padding(3);
-            this.tabComic.Size = new System.Drawing.Size(780, 579);
-            this.tabComic.TabIndex = 0;
-            this.tabComic.Text = "comic";
-            this.tabComic.UseVisualStyleBackColor = true;
+            this.splitMain.Panel2.Controls.Add(this.tabMain);
+            this.splitMain.Size = new System.Drawing.Size(622, 605);
+            this.splitMain.SplitterDistance = 58;
+            this.splitMain.TabIndex = 1;
             // 
-            // tableLayoutPanel1
+            // lblComicInfo
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.comicImage, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(774, 573);
-            this.tableLayoutPanel1.TabIndex = 9;
-            // 
-            // comicImage
-            // 
-            this.comicImage.BackColor = System.Drawing.Color.DimGray;
-            this.comicImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comicImage.ImageLocation = "";
-            this.comicImage.Location = new System.Drawing.Point(3, 53);
-            this.comicImage.Name = "comicImage";
-            this.comicImage.Size = new System.Drawing.Size(381, 530);
-            this.comicImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.comicImage.TabIndex = 12;
-            this.comicImage.TabStop = false;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.webComicDescription);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(390, 53);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(381, 530);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Description:";
-            // 
-            // webComicDescription
-            // 
-            this.webComicDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webComicDescription.Location = new System.Drawing.Point(3, 16);
-            this.webComicDescription.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webComicDescription.Name = "webComicDescription";
-            this.webComicDescription.Size = new System.Drawing.Size(375, 511);
-            this.webComicDescription.TabIndex = 1;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.lblComicName, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblComicInfo, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(381, 44);
-            this.tableLayoutPanel2.TabIndex = 13;
+            this.lblComicInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblComicInfo.AutoSize = true;
+            this.lblComicInfo.Location = new System.Drawing.Point(14, 25);
+            this.lblComicInfo.Name = "lblComicInfo";
+            this.lblComicInfo.Size = new System.Drawing.Size(57, 13);
+            this.lblComicInfo.TabIndex = 13;
+            this.lblComicInfo.Text = "Comic Info";
             // 
             // lblComicName
             // 
@@ -471,157 +415,71 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblComicName.AutoSize = true;
             this.lblComicName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComicName.Location = new System.Drawing.Point(3, 0);
+            this.lblComicName.Location = new System.Drawing.Point(3, 6);
             this.lblComicName.Name = "lblComicName";
-            this.lblComicName.Size = new System.Drawing.Size(375, 19);
-            this.lblComicName.TabIndex = 0;
-            // 
-            // lblComicInfo
-            // 
-            this.lblComicInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblComicInfo.AutoSize = true;
-            this.lblComicInfo.Location = new System.Drawing.Point(3, 22);
-            this.lblComicInfo.Name = "lblComicInfo";
-            this.lblComicInfo.Size = new System.Drawing.Size(375, 13);
-            this.lblComicInfo.TabIndex = 1;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel3.Controls.Add(this.imgPublisher, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblPublisher, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(390, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(381, 44);
-            this.tableLayoutPanel3.TabIndex = 14;
+            this.lblComicName.Size = new System.Drawing.Size(91, 19);
+            this.lblComicName.TabIndex = 12;
+            this.lblComicName.Text = "ComicName";
             // 
             // imgPublisher
             // 
-            this.imgPublisher.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgPublisher.Location = new System.Drawing.Point(324, 3);
+            this.imgPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgPublisher.Location = new System.Drawing.Point(569, 6);
             this.imgPublisher.Name = "imgPublisher";
-            this.imgPublisher.Size = new System.Drawing.Size(54, 41);
-            this.imgPublisher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgPublisher.TabIndex = 10;
+            this.imgPublisher.Size = new System.Drawing.Size(49, 49);
+            this.imgPublisher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPublisher.TabIndex = 11;
             this.imgPublisher.TabStop = false;
             // 
-            // lblPublisher
+            // splitSearch
             // 
-            this.lblPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPublisher.AutoSize = true;
-            this.lblPublisher.Location = new System.Drawing.Point(3, 0);
-            this.lblPublisher.Name = "lblPublisher";
-            this.lblPublisher.Size = new System.Drawing.Size(315, 47);
-            this.lblPublisher.TabIndex = 11;
-            this.lblPublisher.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.splitSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitSearch.Location = new System.Drawing.Point(0, 0);
+            this.splitSearch.Name = "splitSearch";
+            this.splitSearch.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // tabIssue
+            // splitSearch.Panel1
             // 
-            this.tabIssue.Controls.Add(this.groupBox1);
-            this.tabIssue.Controls.Add(this.imgImage);
-            this.tabIssue.Location = new System.Drawing.Point(4, 22);
-            this.tabIssue.Name = "tabIssue";
-            this.tabIssue.Padding = new System.Windows.Forms.Padding(3);
-            this.tabIssue.Size = new System.Drawing.Size(780, 579);
-            this.tabIssue.TabIndex = 1;
-            this.tabIssue.Text = "Issue";
-            this.tabIssue.UseVisualStyleBackColor = true;
+            this.splitSearch.Panel1.Controls.Add(this.lstNZBResults);
+            this.splitSearch.Panel1.Controls.Add(this.toolStripNzb);
             // 
-            // groupBox1
+            // splitSearch.Panel2
             // 
-            this.groupBox1.Controls.Add(this.webIssueDescription);
-            this.groupBox1.Location = new System.Drawing.Point(361, 22);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(319, 531);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Description:";
+            this.splitSearch.Panel2.Controls.Add(this.lstTorrentResults);
+            this.splitSearch.Panel2.Controls.Add(this.toolStripTorrent);
+            this.splitSearch.Size = new System.Drawing.Size(344, 605);
+            this.splitSearch.SplitterDistance = 286;
+            this.splitSearch.TabIndex = 0;
             // 
-            // webIssueDescription
+            // lstNZBResults
             // 
-            this.webIssueDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webIssueDescription.Location = new System.Drawing.Point(3, 16);
-            this.webIssueDescription.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webIssueDescription.Name = "webIssueDescription";
-            this.webIssueDescription.Size = new System.Drawing.Size(313, 512);
-            this.webIssueDescription.TabIndex = 0;
+            this.lstNZBResults.DisplayMember = "BindingName";
+            this.lstNZBResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstNZBResults.FormattingEnabled = true;
+            this.lstNZBResults.Location = new System.Drawing.Point(0, 25);
+            this.lstNZBResults.Name = "lstNZBResults";
+            this.lstNZBResults.Size = new System.Drawing.Size(344, 261);
+            this.lstNZBResults.TabIndex = 8;
             // 
-            // imgImage
+            // toolStripNzb
             // 
-            this.imgImage.Location = new System.Drawing.Point(3, 24);
-            this.imgImage.Name = "imgImage";
-            this.imgImage.Size = new System.Drawing.Size(352, 531);
-            this.imgImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgImage.TabIndex = 7;
-            this.imgImage.TabStop = false;
-            // 
-            // tabSearch
-            // 
-            this.tabSearch.Location = new System.Drawing.Point(4, 22);
-            this.tabSearch.Name = "tabSearch";
-            this.tabSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSearch.Size = new System.Drawing.Size(780, 579);
-            this.tabSearch.TabIndex = 2;
-            this.tabSearch.Text = "Search";
-            this.tabSearch.UseVisualStyleBackColor = true;
-            // 
-            // searchTable
-            // 
-            this.searchTable.ColumnCount = 1;
-            this.searchTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.searchTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.searchTable.Controls.Add(this.lstTorrentResults, 0, 3);
-            this.searchTable.Controls.Add(this.toolStrip3, 0, 0);
-            this.searchTable.Controls.Add(this.toolStrip4, 0, 2);
-            this.searchTable.Controls.Add(this.lstNZBResults, 0, 1);
-            this.searchTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchTable.Location = new System.Drawing.Point(0, 0);
-            this.searchTable.Name = "searchTable";
-            this.searchTable.RowCount = 4;
-            this.searchTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.searchTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.searchTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.searchTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.searchTable.Size = new System.Drawing.Size(396, 605);
-            this.searchTable.TabIndex = 8;
-            // 
-            // lstTorrentResults
-            // 
-            this.lstTorrentResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstTorrentResults.DisplayMember = "BindingName";
-            this.lstTorrentResults.FormattingEnabled = true;
-            this.lstTorrentResults.Location = new System.Drawing.Point(3, 335);
-            this.lstTorrentResults.Name = "lstTorrentResults";
-            this.lstTorrentResults.Size = new System.Drawing.Size(390, 264);
-            this.lstTorrentResults.TabIndex = 8;
-            // 
-            // toolStrip3
-            // 
-            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel3,
+            this.toolStripNzb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblToolStripNzb,
             this.toolStripSeparator4,
+            this.txtNzbResultsFilter,
+            this.toolStripSeparator1,
             this.btnSendToSab});
-            this.toolStrip3.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(396, 25);
-            this.toolStrip3.TabIndex = 0;
-            this.toolStrip3.Text = "toolStrip3";
+            this.toolStripNzb.Location = new System.Drawing.Point(0, 0);
+            this.toolStripNzb.Name = "toolStripNzb";
+            this.toolStripNzb.Size = new System.Drawing.Size(344, 25);
+            this.toolStripNzb.TabIndex = 1;
+            this.toolStripNzb.Text = "Nzb";
             // 
-            // toolStripLabel3
+            // lblToolStripNzb
             // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(30, 22);
-            this.toolStripLabel3.Text = "NZB";
+            this.lblToolStripNzb.Name = "lblToolStripNzb";
+            this.lblToolStripNzb.Size = new System.Drawing.Size(30, 22);
+            this.lblToolStripNzb.Text = "NZB";
             // 
             // toolStripSeparator4
             // 
@@ -639,40 +497,47 @@
             this.btnSendToSab.ToolTipText = "Send To Sab";
             this.btnSendToSab.Click += new System.EventHandler(this.btnSendToSab_Click);
             // 
-            // toolStrip4
+            // txtNzbResultsFilter
             // 
-            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel4,
+            this.txtNzbResultsFilter.Name = "txtNzbResultsFilter";
+            this.txtNzbResultsFilter.Size = new System.Drawing.Size(200, 25);
+            this.txtNzbResultsFilter.Leave += new System.EventHandler(this.txtNzbResultsFilter_Leave);
+            this.txtNzbResultsFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNzbResultsFilter_KeyDown);
+            // 
+            // lstTorrentResults
+            // 
+            this.lstTorrentResults.DisplayMember = "BindingName";
+            this.lstTorrentResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstTorrentResults.FormattingEnabled = true;
+            this.lstTorrentResults.Location = new System.Drawing.Point(0, 25);
+            this.lstTorrentResults.Name = "lstTorrentResults";
+            this.lstTorrentResults.Size = new System.Drawing.Size(344, 290);
+            this.lstTorrentResults.TabIndex = 9;
+            // 
+            // toolStripTorrent
+            // 
+            this.toolStripTorrent.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblToolStripTorrents,
             this.toolStripSeparator5,
+            this.txtTorrentFilter,
+            this.toolStripSeparator2,
             this.btnAddToRTorrnt});
-            this.toolStrip4.Location = new System.Drawing.Point(0, 302);
-            this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(396, 25);
-            this.toolStrip4.TabIndex = 1;
-            this.toolStrip4.Text = "toolStrip4";
+            this.toolStripTorrent.Location = new System.Drawing.Point(0, 0);
+            this.toolStripTorrent.Name = "toolStripTorrent";
+            this.toolStripTorrent.Size = new System.Drawing.Size(344, 25);
+            this.toolStripTorrent.TabIndex = 2;
+            this.toolStripTorrent.Text = "toolStrip4";
             // 
-            // toolStripLabel4
+            // lblToolStripTorrents
             // 
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(51, 22);
-            this.toolStripLabel4.Text = "Torrents";
+            this.lblToolStripTorrents.Name = "lblToolStripTorrents";
+            this.lblToolStripTorrents.Size = new System.Drawing.Size(50, 22);
+            this.lblToolStripTorrents.Text = "Torrents";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // lstNZBResults
-            // 
-            this.lstNZBResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstNZBResults.DisplayMember = "BindingName";
-            this.lstNZBResults.FormattingEnabled = true;
-            this.lstNZBResults.Location = new System.Drawing.Point(3, 33);
-            this.lstNZBResults.Name = "lstNZBResults";
-            this.lstNZBResults.Size = new System.Drawing.Size(390, 264);
-            this.lstNZBResults.TabIndex = 7;
             // 
             // btnAddToRTorrnt
             // 
@@ -684,55 +549,199 @@
             this.btnAddToRTorrnt.Text = "Add to RTorrent";
             this.btnAddToRTorrnt.Click += new System.EventHandler(this.btnAddToRTorrnt_Click);
             // 
+            // grpComicDescription
+            // 
+            this.grpComicDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpComicDescription.Location = new System.Drawing.Point(0, 0);
+            this.grpComicDescription.Name = "grpComicDescription";
+            this.grpComicDescription.Size = new System.Drawing.Size(300, 528);
+            this.grpComicDescription.TabIndex = 11;
+            this.grpComicDescription.TabStop = false;
+            // 
+            // webComicDescription
+            // 
+            this.webComicDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webComicDescription.Location = new System.Drawing.Point(3, 16);
+            this.webComicDescription.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webComicDescription.Name = "webComicDescription";
+            this.webComicDescription.Size = new System.Drawing.Size(294, 509);
+            this.webComicDescription.TabIndex = 1;
+            // 
+            // comicImage
+            // 
+            this.comicImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comicImage.BackColor = System.Drawing.Color.Transparent;
+            this.comicImage.ImageLocation = "";
+            this.comicImage.Location = new System.Drawing.Point(0, 0);
+            this.comicImage.Name = "comicImage";
+            this.comicImage.Size = new System.Drawing.Size(304, 426);
+            this.comicImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.comicImage.TabIndex = 14;
+            this.comicImage.TabStop = false;
+            // 
+            // tabSearch
+            // 
+            this.tabSearch.Location = new System.Drawing.Point(4, 44);
+            this.tabSearch.Name = "tabSearch";
+            this.tabSearch.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSearch.Size = new System.Drawing.Size(614, 495);
+            this.tabSearch.TabIndex = 2;
+            this.tabSearch.Text = "Search";
+            this.tabSearch.UseVisualStyleBackColor = true;
+            // 
+            // tabComic
+            // 
+            this.tabComic.Controls.Add(this.splitImageDescription);
+            this.tabComic.Location = new System.Drawing.Point(4, 5);
+            this.tabComic.Name = "tabComic";
+            this.tabComic.Padding = new System.Windows.Forms.Padding(3);
+            this.tabComic.Size = new System.Drawing.Size(614, 534);
+            this.tabComic.TabIndex = 0;
+            this.tabComic.Text = "comic";
+            this.tabComic.UseVisualStyleBackColor = true;
+            // 
+            // splitImageDescription
+            // 
+            this.splitImageDescription.BackColor = System.Drawing.Color.White;
+            this.splitImageDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitImageDescription.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitImageDescription.Location = new System.Drawing.Point(3, 3);
+            this.splitImageDescription.Name = "splitImageDescription";
+            // 
+            // splitImageDescription.Panel1
+            // 
+            this.splitImageDescription.Panel1.Controls.Add(this.imgDetail);
+            // 
+            // splitImageDescription.Panel2
+            // 
+            this.splitImageDescription.Panel2.Controls.Add(this.groupBox1);
+            this.splitImageDescription.Size = new System.Drawing.Size(608, 528);
+            this.splitImageDescription.SplitterDistance = 282;
+            this.splitImageDescription.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.webDetails);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(292, 525);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Description:";
+            // 
+            // webDetails
+            // 
+            this.webDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webDetails.Location = new System.Drawing.Point(3, 16);
+            this.webDetails.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webDetails.Name = "webDetails";
+            this.webDetails.Size = new System.Drawing.Size(286, 506);
+            this.webDetails.TabIndex = 0;
+            // 
+            // tabMain
+            // 
+            this.tabMain.Controls.Add(this.tabComic);
+            this.tabMain.Controls.Add(this.tabSearch);
+            this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabMain.ItemSize = new System.Drawing.Size(0, 1);
+            this.tabMain.Location = new System.Drawing.Point(0, 0);
+            this.tabMain.Name = "tabMain";
+            this.tabMain.SelectedIndex = 0;
+            this.tabMain.Size = new System.Drawing.Size(622, 543);
+            this.tabMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabMain.TabIndex = 0;
+            // 
+            // imgDetail
+            // 
+            this.imgDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgDetail.Location = new System.Drawing.Point(3, 4);
+            this.imgDetail.Name = "imgDetail";
+            this.imgDetail.Size = new System.Drawing.Size(276, 397);
+            this.imgDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgDetail.TabIndex = 8;
+            this.imgDetail.TabStop = false;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // txtTorrentFilter
+            // 
+            this.txtTorrentFilter.Name = "txtTorrentFilter";
+            this.txtTorrentFilter.Size = new System.Drawing.Size(200, 25);
+            this.txtTorrentFilter.Leave += new System.EventHandler(this.toolStripTextBox1_Leave);
+            this.txtTorrentFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyDown);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1630, 651);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(1331, 651);
+            this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStripMain);
+            this.MainMenuStrip = this.menuStripMain;
             this.Name = "Main";
             this.Text = "Mylar - Side Car Utility";
             this.Load += new System.EventHandler(this.Main_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.tabPanelComics.ResumeLayout(false);
-            this.tabPanelComics.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            this.tabMain.ResumeLayout(false);
-            this.tabComic.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
+            this.menuStripMain.ResumeLayout(false);
+            this.menuStripMain.PerformLayout();
+            this.splitContainerMain.Panel1.ResumeLayout(false);
+            this.splitContainerMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
+            this.splitContainerMain.ResumeLayout(false);
+            this.splitComicIssueDetails.Panel1.ResumeLayout(false);
+            this.splitComicIssueDetails.Panel1.PerformLayout();
+            this.splitComicIssueDetails.Panel2.ResumeLayout(false);
+            this.splitComicIssueDetails.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitComicIssueDetails)).EndInit();
+            this.splitComicIssueDetails.ResumeLayout(false);
+            this.toolStripComics.ResumeLayout(false);
+            this.toolStripComics.PerformLayout();
+            this.toolStripIssues.ResumeLayout(false);
+            this.toolStripIssues.PerformLayout();
+            this.splitDetailsSearch.Panel1.ResumeLayout(false);
+            this.splitDetailsSearch.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitDetailsSearch)).EndInit();
+            this.splitDetailsSearch.ResumeLayout(false);
+            this.splitMain.Panel1.ResumeLayout(false);
+            this.splitMain.Panel1.PerformLayout();
+            this.splitMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
+            this.splitMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgPublisher)).EndInit();
-            this.tabIssue.ResumeLayout(false);
+            this.splitSearch.Panel1.ResumeLayout(false);
+            this.splitSearch.Panel1.PerformLayout();
+            this.splitSearch.Panel2.ResumeLayout(false);
+            this.splitSearch.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitSearch)).EndInit();
+            this.splitSearch.ResumeLayout(false);
+            this.toolStripNzb.ResumeLayout(false);
+            this.toolStripNzb.PerformLayout();
+            this.toolStripTorrent.ResumeLayout(false);
+            this.toolStripTorrent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).EndInit();
+            this.tabComic.ResumeLayout(false);
+            this.splitImageDescription.Panel1.ResumeLayout(false);
+            this.splitImageDescription.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitImageDescription)).EndInit();
+            this.splitImageDescription.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgImage)).EndInit();
-            this.searchTable.ResumeLayout(false);
-            this.searchTable.PerformLayout();
-            this.toolStrip3.ResumeLayout(false);
-            this.toolStrip3.PerformLayout();
-            this.toolStrip4.ResumeLayout(false);
-            this.toolStrip4.PerformLayout();
+            this.tabMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgDetail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -741,59 +750,59 @@
         #endregion
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripStatusLabel statusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cinfToolStripMenuItem;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TableLayoutPanel tabPanelComics;
+        private System.Windows.Forms.SplitContainer splitContainerMain;
+        private System.Windows.Forms.SplitContainer splitMain;
+        private System.Windows.Forms.SplitContainer splitComicIssueDetails;
         private System.Windows.Forms.ListBox lstComics;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStripComics;
+        private System.Windows.Forms.ToolStripLabel lblToolStripComic;
+        private System.Windows.Forms.ToolStripSeparator sepToolStripComkics1;
         private System.Windows.Forms.ToolStripTextBox txtComicFilter;
-        private System.Windows.Forms.ToolStripButton btnFilterComics;
         private System.Windows.Forms.ToolStripButton btnSearchComic;
-        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton btnRefreshData;
+        private System.Windows.Forms.ListBox lstIssues;
+        private System.Windows.Forms.ToolStrip toolStripIssues;
+        private System.Windows.Forms.ToolStripLabel lblToolStripIssues;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnMissing;
         private System.Windows.Forms.ToolStripButton btnDownloaded;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator sepToolStripIssues2;
         private System.Windows.Forms.ToolStripButton btnSearchIssue;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.TabControl tabMain;
-        private System.Windows.Forms.TabPage tabComic;
-        private System.Windows.Forms.TabPage tabIssue;
-        private System.Windows.Forms.TableLayoutPanel searchTable;
-        private System.Windows.Forms.ToolStrip toolStrip3;
-        private System.Windows.Forms.ToolStrip toolStrip4;
-        private System.Windows.Forms.ListBox listIssues;
-        private System.Windows.Forms.TabPage tabSearch;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.SplitContainer splitDetailsSearch;
+        private System.Windows.Forms.SplitContainer splitSearch;
+        private System.Windows.Forms.ListBox lstNZBResults;
+        private System.Windows.Forms.ToolStrip toolStripNzb;
+        private System.Windows.Forms.ToolStripLabel lblToolStripNzb;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton btnSendToSab;
+        private System.Windows.Forms.ToolStripTextBox txtNzbResultsFilter;
         private System.Windows.Forms.ListBox lstTorrentResults;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
+        private System.Windows.Forms.ToolStrip toolStripTorrent;
+        private System.Windows.Forms.ToolStripLabel lblToolStripTorrents;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ListBox lstNZBResults;
-        private System.Windows.Forms.ToolStripButton btnRefreshData;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.WebBrowser webIssueDescription;
-        private System.Windows.Forms.PictureBox imgImage;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox comicImage;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.WebBrowser webComicDescription;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label lblComicName;
-        private System.Windows.Forms.Label lblComicInfo;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.PictureBox imgPublisher;
-        private System.Windows.Forms.Label lblPublisher;
         private System.Windows.Forms.ToolStripButton btnAddToRTorrnt;
+        private System.Windows.Forms.Label lblComicInfo;
+        private System.Windows.Forms.Label lblComicName;
+        private System.Windows.Forms.PictureBox imgPublisher;
+        private System.Windows.Forms.GroupBox grpComicDescription;
+        private System.Windows.Forms.WebBrowser webComicDescription;
+        private System.Windows.Forms.PictureBox comicImage;
+        private System.Windows.Forms.TabControl tabMain;
+        private System.Windows.Forms.TabPage tabComic;
+        private System.Windows.Forms.SplitContainer splitImageDescription;
+        private System.Windows.Forms.PictureBox imgDetail;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.WebBrowser webDetails;
+        private System.Windows.Forms.TabPage tabSearch;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox txtTorrentFilter;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

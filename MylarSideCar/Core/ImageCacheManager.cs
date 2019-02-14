@@ -14,6 +14,10 @@ namespace MylarSideCar.Core
  
         public static Image GetImage(string url)
         {
+            if (string.IsNullOrEmpty(url))
+            {
+                return null;
+            }
             Uri u = new Uri(url);
             string filename = System.IO.Path.GetFileName(u.LocalPath);
             string path =   Path.GetDirectoryName(Application.ExecutablePath) + "\\imageCache\\";

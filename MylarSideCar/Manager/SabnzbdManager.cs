@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms.VisualStyles;
 using MylarSideCar.Manager.Sabnzbd;
 using MylarSideCar.Model;
 
 namespace MylarSideCar.Manager
 {
- 
+
     public class SabnzbdManager
-    { 
+    {
 
         public static void UploadNzb(NewzNabSearchResult result, Issue issue, Comic comic)
         {
+            if (result == null)
+            {
+                return;
+            }
             if (!ConfigManager.HasValue<SabConfig>())
             {
                 return;
@@ -20,27 +25,24 @@ namespace MylarSideCar.Manager
             var sabConfig = ConfigManager.GetConfig<SabConfig>();
 
             var host = new StringBuilder();
-            
+
 
             host.Append(sabConfig.HostUrl);
-      
 
-            var client = new SabnzbdClient(sabConfig.HostUrl,ushort.Parse( sabConfig.Port.ToString()),sabConfig.ApIkey,sabConfig.Root,sabConfig.Https);
 
-            if (issue != null)
+            var client = new SabnzbdClient(sabConfig.HostUrl, ushort.Parse(sabConfig.Port.ToString()), sabConfig.ApIkey,
+                sabConfig.Root, sabConfig.Https);
+
+
             {
-                client.AddQueue(result.NZBUrl, comic.ComicName_Filesafe.Replace(" ", "_") + "_" + issue.Issue_Number, "comics");
+                string nzbName = Regex.Replace(comic.ComicName, "[^a-zA-Z0-9_]+", "_");
+                client.AddQueue(result.NZBUrl, nzbName, "comics");
+
+
 
             }
-            else
-            {
-                var random = new Random();
-                client.AddQueue(result.NZBUrl, comic.ComicName_Filesafe.Replace(" ", "_") + result.Provider + random.Next(0, 9999).ToString("D4"), "comics");
-            }
-
 
         }
-         
     }
 }
 

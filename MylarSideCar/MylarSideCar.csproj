@@ -41,8 +41,11 @@
     <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
       <HintPath>..\packages\CookComputing.XmlRPCv2.2.5.0\lib\CookComputing.XmlRpcV2.dll</HintPath>
     </Reference>
+    <Reference Include="Esprima, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2e92ba9c8d81157f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Esprima.1.0.0-beta-1070\lib\net45\Esprima.dll</HintPath>
+    </Reference>
     <Reference Include="Jint, Version=0.0.0.0, Culture=neutral, PublicKeyToken=2e92ba9c8d81157f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jint.2.11.58\lib\net451\Jint.dll</HintPath>
+      <HintPath>..\packages\Jint.3.0.0-beta-1353\lib\net45\Jint.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
@@ -57,7 +60,7 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.6.0-rc1\lib\net45\NLog.dll</HintPath>
+      <HintPath>..\packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=106.6.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.6.7\lib\net452\RestSharp.dll</HintPath>
@@ -120,10 +123,11 @@
     <Compile Include="Model\ComicVine\CvImage.cs" />
     <Compile Include="Model\ComicVine\CvIssue.cs" />
     <Compile Include="Model\ComicVine\CvObject.cs" />
+    <Compile Include="Model\ComicVine\CvIssueResponse.cs" />
     <Compile Include="Model\ComicVine\CvResponse.cs" />
     <Compile Include="Model\ComicVine\CvPublisherResponse.cs" />
+    <Compile Include="Model\ComicVine\CvVolume.cs" />
     <Compile Include="Model\ComicVine\CvVolumeResponse.cs" />
-    <Compile Include="Model\ComicVine\CvVolumecs.cs" />
     <Compile Include="Model\ComicVine\CvPublisher.cs" />
     <Compile Include="Model\NewzNabSearchResult.cs" />
     <Compile Include="Manager\NewzNab\NewzNabSources.cs" />
@@ -183,6 +187,7 @@
   <ItemGroup>
     <Content Include="sidecar_logo_app_icon_driver_ux5_icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

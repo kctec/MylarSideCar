@@ -24,6 +24,7 @@ namespace MylarSideCar
             InitializeComponent();
             FormatComicsList();
             FormatIssuesList();
+            ClearAll();
         }
 
         private void GetData()
@@ -85,7 +86,7 @@ namespace MylarSideCar
 
         private void SetStatus(string value)
         {
-            statusLabel.Text = value;
+            lblStatus.Text = value;
         }
 
         private void CinfToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,6 +107,8 @@ namespace MylarSideCar
         private void LstComics_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstComics.SelectedIndex < 0) return;
+            ClearSearchResults();
+
             lstComics.Refresh();
             BindComic((Title) lstComics.Items[lstComics.SelectedIndex]);
 
@@ -152,17 +155,17 @@ namespace MylarSideCar
 
         private void FormatIssuesList()
         {
-            listIssues.DrawMode = DrawMode.OwnerDrawFixed;
-            listIssues.ItemHeight += 5;
-            listIssues.DrawItem += ListIssues_DrawItem;
-            listIssues.SelectedIndexChanged += ListIssues_SelectedIndexChanged;
+            lstIssues.DrawMode = DrawMode.OwnerDrawFixed;
+            lstIssues.ItemHeight += 5;
+            lstIssues.DrawItem += ListIssues_DrawItem;
+            lstIssues.SelectedIndexChanged += ListIssues_SelectedIndexChanged;
         }
 
         private void ListIssues_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index < 0) return;
             var identifier = "?";
-            var issue = (Issue) listIssues.Items[e.Index];
+            var issue = (Issue) lstIssues.Items[e.Index];
             if (issue.Status == "Downloaded")
             {
                 identifier = "+";
@@ -193,7 +196,7 @@ namespace MylarSideCar
                 e.Graphics.FillRectangle(Brushes.LightGray, e.Bounds);
             }
 
-            if (listIssues.SelectedIndex == e.Index)
+            if (lstIssues.SelectedIndex == e.Index)
             {
                 e.Graphics.FillRectangle(Brushes.Blue, e.Bounds);
                 e.Graphics.DrawString("[ " + identifier + " ] - " + issue.BindingName, Font, Brushes.White, 0,
@@ -208,24 +211,60 @@ namespace MylarSideCar
 
         private void ListIssues_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listIssues.Refresh();
-            lstNZBResults.Items.Clear();
+          
+
+            lstIssues.Refresh();
+            
+            ClearSearchResults();
+            if (lstIssues.SelectedIndex < 0) return;
+            string issueId = ((Issue) lstIssues.SelectedItem).IssueID;
+            lblComicName.Text = _currentComic.Comics[0].ComicName;
+            lblComicName.Text += @"  (" + _currentVolume.Volume.StartYear + @") " + @" Issue #" + ((Issue)lstIssues.SelectedItem).Issue_Number;
+            CvIssueResponse issue = ComicVineManager.GetIssue(issueId);
+            webDetails.DocumentText = "0";
+            if (webDetails.Document != null)
+            {
+                webDetails.Document.OpenNew(true);
+                webDetails.Document.Write(issue.Issue.Description);
+            }
+
+            webDetails.Refresh();
+            if (issue.Issue.Image != null)
+            {
+                if (!string.IsNullOrEmpty(issue.Issue.Image.LargeUrl))
+                {
+                   imgDetail.Image = ImageCacheManager.GetImage( issue.Issue.Image.LargeUrl);
+                }
+                else
+                {
+                    imgDetail.Image = ImageCacheManager.GetImage(_currentComic.Comics[0].ComicImageURL);
+
+                }
+            }
+
+
+
             SetStatus("Ready ...");
         }
 
         private void BindComic(Title title)
         {
             _currentComic = MylarManager.GetComic(title.ComicID);
-            comicImage.Image = ImageCacheManager.GetImage(_currentComic.Comics[0].ComicImageURL);
+  
+            imgDetail.Image = ImageCacheManager.GetImage(_currentComic.Comics[0].ComicImageURL);
             lblComicName.Text = _currentComic.Comics[0].ComicName; 
 
             _currentVolume = ComicVineManager.GetVolume(title.ComicID);
             lblComicName.Text += @"  (" + _currentVolume.Volume.StartYear + @")";
 
-            webComicDescription.DocumentText = "0";
-            webComicDescription.Document.OpenNew(true);
-            webComicDescription.Document.Write(_currentVolume.Volume.Description);
-            webComicDescription.Refresh();
+            webDetails.DocumentText = "0";
+            if (webDetails.Document != null)
+            {
+                webDetails.Document.OpenNew(true);
+                webDetails.Document.Write(_currentVolume.Volume.Description);
+            }
+
+            webDetails.Refresh();
 
             var pub = ComicVineManager.GetPublisher(_currentVolume.Volume.Publisher.Id);
             imgPublisher.Image = ImageCacheManager.GetImage(pub.Publisher.Image.IconUrl);
@@ -234,21 +273,16 @@ namespace MylarSideCar
 
         private void BindIssues()
         {
-            listIssues.DrawItem -= ListIssues_DrawItem;
-            listIssues.Items.Clear();
-            foreach (var issue in _currentComic.Issues) listIssues.Items.Add(issue);
-            listIssues.DrawItem += ListIssues_DrawItem;
-            listIssues.Refresh();
+            lstIssues.DrawItem -= ListIssues_DrawItem;
+            lstIssues.Items.Clear();
+            foreach (var issue in _currentComic.Issues) lstIssues.Items.Add(issue);
+            lstIssues.DrawItem += ListIssues_DrawItem;
+            lstIssues.Refresh();
         }
 
         private void btnRefreshData_Click(object sender, EventArgs e)
         {
-            listIssues.ClearSelected();
-            lstComics.ClearSelected();
-            lstComics.Items.Clear();
-            listIssues.Items.Clear();
-            lstNZBResults.Items.Clear();
-            lstTorrentResults.Items.Clear();
+            ClearAll();
             LoadData();
         }
 
@@ -256,15 +290,14 @@ namespace MylarSideCar
         private void btnSearchIssue_Click(object sender, EventArgs e)
         {
 
-            if (listIssues.SelectedIndex < 0) return;
-            lstNZBResults.Items.Clear();
-            lstTorrentResults.Items.Clear();
+            if (lstIssues.SelectedIndex < 0) return;
+            ClearSearchResults();
 
             SetStatus("Searching ...");
 
-            _nzbResults = NzbSearchManager.Search((Issue) listIssues.SelectedItem, _currentComic.Comics[0]);
+            _nzbResults = NzbSearchManager.Search((Issue) lstIssues.SelectedItem, _currentComic.Comics[0]);
             _torzNabResults =
-                TorzNabSearchManager.Search((Issue)listIssues.SelectedItem, _currentComic.Comics[0]);
+                TorzNabSearchManager.Search((Issue)lstIssues.SelectedItem, _currentComic.Comics[0]);
 
             foreach (var result in _nzbResults) lstNZBResults.Items.Add(result);
             foreach (var result in _torzNabResults) lstTorrentResults.Items.Add(result);
@@ -278,15 +311,15 @@ namespace MylarSideCar
         private void btnSendToSab_Click(object sender, EventArgs e)
         {
             var result = (NewzNabSearchResult) lstNZBResults.SelectedItem;
-            SabnzbdManager.UploadNzb(result, (Issue) listIssues.SelectedItem, _currentComic.Comics[0]);
+            SabnzbdManager.UploadNzb(result, (Issue) lstIssues.SelectedItem, _currentComic.Comics[0]);
         }
 
         private void btnSearchComic_Click(object sender, EventArgs e)
         {
 
             if (lstComics.SelectedIndex < 0) return;
-            lstTorrentResults.Items.Clear();
-            lstNZBResults.Items.Clear();
+    
+            ClearSearchResults();
 
             SetStatus("Searching ...");
 
@@ -305,7 +338,134 @@ namespace MylarSideCar
 
         private void btnAddToRTorrnt_Click(object sender, EventArgs e)
         {
-            RTorrentManager.AddTorrent((TorzNabResult) lstTorrentResults.SelectedItem);
+            RTorrentManager.AddTorrent((TorzNabResult)lstTorrentResults.SelectedItem);
+        }
+
+
+        private void ClearAll()
+        {
+            ClearSearchResults();
+
+
+            lstIssues.Items.Clear();
+            lstComics.Items.Clear();
+
+            webDetails.DocumentText = "0";
+            if (webDetails.Document != null)
+            {
+                webDetails.Document.OpenNew(true);
+                webDetails.Document.Write("");
+            }
+
+            webDetails.Refresh();
+
+            imgDetail.Image = null;
+
+            lblComicInfo.Text = null;
+            lblComicName.Text = null;
+
+            imgPublisher.Image = null;
+
+        }
+
+        private void ClearSearchResults()
+        {
+            lstTorrentResults.Items.Clear();
+            lstNZBResults.Items.Clear();
+            txtTorrentFilter.Text = "";
+            txtNzbResultsFilter.Text = "";
+        }
+
+        private void txtComicFilter_Leave(object sender, EventArgs e)
+        {
+            lstComics.DrawItem -= LstComics_DrawItem;
+            BindData();
+            lstComics.DrawItem += LstComics_DrawItem;
+            lstComics.Refresh();
+        }
+
+        private void txtComicFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Return)
+
+            {
+                lstComics.DrawItem -= LstComics_DrawItem;
+                BindData();
+                lstComics.DrawItem += LstComics_DrawItem;
+                lstComics.Refresh();
+            }
+        }
+
+        private void txtNzbResultsFilter_Leave(object sender, EventArgs e)
+        {
+            FilterNzbs();
+        }
+
+        private void FilterNzbs()
+        {
+            lstNZBResults.Items.Clear();
+
+            string[] values = txtNzbResultsFilter.Text.Split(' ');
+            foreach (var nzbResult in _nzbResults)
+            {
+                bool found = true;
+                foreach (var value in values)
+                    if (!nzbResult.Description.ToLower().Contains(value.ToLower()))
+                    {
+                        found = false;
+                        break;
+                    }
+
+                if (found)
+                {
+                    lstNZBResults.Items.Add(nzbResult);
+                }
+            }
+        }
+
+        private void txtNzbResultsFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char) Keys.Return)
+
+            {
+                FilterNzbs();
+            }
+        }
+
+        private void FilterTors()
+        {
+            lstTorrentResults.Items.Clear();
+
+            string[] values = txtTorrentFilter.Text.Split(' ');
+            foreach (var result in _torzNabResults)
+            {
+                bool found = true;
+                foreach (var value in values)
+                    if (!result.Description.ToLower().Contains(value.ToLower()))
+                    {
+                        found = false;
+                        break;
+                    }
+
+                if (found)
+                {
+                    lstTorrentResults.Items.Add(result);
+                }
+            }
+        }
+
+        private void toolStripTextBox1_Leave(object sender, EventArgs e)
+        {
+            FilterTors();
+        }
+
+        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Return)
+
+            {
+                FilterTors();
+            }
         }
     }
 }

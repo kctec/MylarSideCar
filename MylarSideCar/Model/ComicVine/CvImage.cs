@@ -15,7 +15,8 @@ namespace MylarSideCar.Model.ComicVine
         [Newtonsoft.Json.JsonProperty(PropertyName = "icon_url")]
         public string IconUrl { get; set; }
 
-     
 
+        [Newtonsoft.Json.JsonProperty(PropertyName = "screen_large_url")]
+        public string LargeUrl { get; set; }
     }
 }

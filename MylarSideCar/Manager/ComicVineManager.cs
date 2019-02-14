@@ -94,6 +94,42 @@ namespace MylarSideCar.Manager
      
         }
 
+        public static CvIssueResponse GetIssue(string issueId)
+        {
+            string content;
+            var filename = "issue_4000-" + issueId + ".json";
+
+            var path = Path.GetDirectoryName(Application.ExecutablePath) + "\\cvCache\\";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            path = path + filename;
+            if (File.Exists(path))
+            {
+                content = File.ReadAllText(path);
+            }
+            else
+            {
+                var request = new RestRequest("/issue/4000-" + issueId, Method.GET);
+                request.AddParameter("api_key", GetConfig().ApiKey);
+                request.AddParameter("format", "json");
+
+                var response = GetRestClient().Execute(request);
+                content = response.Content;
+                File.WriteAllText(path, content);
+            }
+
+            var jsonSerializerSettings = new JsonSerializerSettings
+            {
+                MissingMemberHandling = MissingMemberHandling.Ignore
+            };
+
+            return JsonConvert.DeserializeObject<CvIssueResponse>(content, jsonSerializerSettings);
+
+
+        }
+
 
     }
 }

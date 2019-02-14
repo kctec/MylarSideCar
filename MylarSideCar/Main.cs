@@ -302,5 +302,10 @@ namespace MylarSideCar
             else
                 SetStatus("Search Complete - " + (_nzbResults.Count + _torzNabResults.Count) + " results found");
         }
+
+        private void btnAddToRTorrnt_Click(object sender, EventArgs e)
+        {
+            RTorrentManager.AddTorrent((TorzNabResult) lstTorrentResults.SelectedItem);
+        }
     }
 }

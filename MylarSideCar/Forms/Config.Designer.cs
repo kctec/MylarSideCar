@@ -123,6 +123,22 @@
             this.txtNewzHost1 = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.txtNewzName1 = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.txtLinkSubFind = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.txtLinkSubReplace = new System.Windows.Forms.TextBox();
+            this.tabRTorrent = new System.Windows.Forms.TabPage();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txtRTorrentPort = new System.Windows.Forms.TextBox();
+            this.txtRTorrentPassword = new System.Windows.Forms.TextBox();
+            this.txtRTorrentUserName = new System.Windows.Forms.TextBox();
+            this.txtRTorrentUrlBase = new System.Windows.Forms.TextBox();
+            this.txtRTorrentHost = new System.Windows.Forms.TextBox();
+            this.chkRTorrentHttps = new System.Windows.Forms.CheckBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
             this.tabTorzNab.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -137,6 +153,7 @@
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.tabRTorrent.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -161,6 +178,10 @@
             // 
             // tabTorzNab
             // 
+            this.tabTorzNab.Controls.Add(this.label37);
+            this.tabTorzNab.Controls.Add(this.txtLinkSubReplace);
+            this.tabTorzNab.Controls.Add(this.label36);
+            this.tabTorzNab.Controls.Add(this.txtLinkSubFind);
             this.tabTorzNab.Controls.Add(this.groupBox4);
             this.tabTorzNab.Controls.Add(this.groupBox3);
             this.tabTorzNab.Controls.Add(this.groupBox2);
@@ -762,6 +783,7 @@
             this.configTabs.Controls.Add(this.tabComicVine);
             this.configTabs.Controls.Add(this.tabTorzNab);
             this.configTabs.Controls.Add(this.tabNewzNab);
+            this.configTabs.Controls.Add(this.tabRTorrent);
             this.configTabs.Location = new System.Drawing.Point(1, 3);
             this.configTabs.Multiline = true;
             this.configTabs.Name = "configTabs";
@@ -1103,6 +1125,165 @@
             this.txtNewzName1.Size = new System.Drawing.Size(229, 20);
             this.txtNewzName1.TabIndex = 94;
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(6, 413);
+            this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(52, 13);
+            this.label36.TabIndex = 100;
+            this.label36.Text = "Link Sub:";
+
+            // 
+            // txtLinkSubFind
+            // 
+            this.txtLinkSubFind.Location = new System.Drawing.Point(58, 410);
+            this.txtLinkSubFind.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLinkSubFind.Name = "txtLinkSubFind";
+            this.txtLinkSubFind.Size = new System.Drawing.Size(157, 20);
+            this.txtLinkSubFind.TabIndex = 101;
+             // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(217, 417);
+            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(32, 13);
+            this.label37.TabIndex = 102;
+            this.label37.Text = "With:";
+            // 
+            // txtLinkSubReplace
+            // 
+            this.txtLinkSubReplace.Location = new System.Drawing.Point(249, 410);
+            this.txtLinkSubReplace.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLinkSubReplace.Name = "txtLinkSubReplace";
+            this.txtLinkSubReplace.Size = new System.Drawing.Size(168, 20);
+            this.txtLinkSubReplace.TabIndex = 103;
+            // 
+            // tabRTorrent
+            // 
+            this.tabRTorrent.Controls.Add(this.label38);
+            this.tabRTorrent.Controls.Add(this.txtRTorrentPort);
+            this.tabRTorrent.Controls.Add(this.txtRTorrentPassword);
+            this.tabRTorrent.Controls.Add(this.txtRTorrentUserName);
+            this.tabRTorrent.Controls.Add(this.txtRTorrentUrlBase);
+            this.tabRTorrent.Controls.Add(this.txtRTorrentHost);
+            this.tabRTorrent.Controls.Add(this.chkRTorrentHttps);
+            this.tabRTorrent.Controls.Add(this.label40);
+            this.tabRTorrent.Controls.Add(this.label41);
+            this.tabRTorrent.Controls.Add(this.label42);
+            this.tabRTorrent.Controls.Add(this.label43);
+            this.tabRTorrent.Location = new System.Drawing.Point(4, 22);
+            this.tabRTorrent.Name = "tabRTorrent";
+            this.tabRTorrent.Padding = new System.Windows.Forms.Padding(3);
+            this.tabRTorrent.Size = new System.Drawing.Size(424, 435);
+            this.tabRTorrent.TabIndex = 9;
+            this.tabRTorrent.Text = "RTorrent";
+            this.tabRTorrent.UseVisualStyleBackColor = true;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(80, 104);
+            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(29, 13);
+            this.label38.TabIndex = 107;
+            this.label38.Text = "Port:";
+            // 
+            // txtRTorrentPort
+            // 
+            this.txtRTorrentPort.Location = new System.Drawing.Point(113, 101);
+            this.txtRTorrentPort.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRTorrentPort.Name = "txtRTorrentPort";
+            this.txtRTorrentPort.Size = new System.Drawing.Size(229, 20);
+            this.txtRTorrentPort.TabIndex = 108;
+            // 
+            // txtRTorrentPassword
+            // 
+            this.txtRTorrentPassword.Location = new System.Drawing.Point(113, 77);
+            this.txtRTorrentPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRTorrentPassword.Name = "txtRTorrentPassword";
+            this.txtRTorrentPassword.Size = new System.Drawing.Size(229, 20);
+            this.txtRTorrentPassword.TabIndex = 103;
+            // 
+            // txtRTorrentUserName
+            // 
+            this.txtRTorrentUserName.Location = new System.Drawing.Point(113, 53);
+            this.txtRTorrentUserName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRTorrentUserName.Name = "txtRTorrentUserName";
+            this.txtRTorrentUserName.Size = new System.Drawing.Size(229, 20);
+            this.txtRTorrentUserName.TabIndex = 102;
+            // 
+            // txtRTorrentUrlBase
+            // 
+            this.txtRTorrentUrlBase.Location = new System.Drawing.Point(113, 29);
+            this.txtRTorrentUrlBase.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRTorrentUrlBase.Name = "txtRTorrentUrlBase";
+            this.txtRTorrentUrlBase.Size = new System.Drawing.Size(229, 20);
+            this.txtRTorrentUrlBase.TabIndex = 100;
+            // 
+            // txtRTorrentHost
+            // 
+            this.txtRTorrentHost.Location = new System.Drawing.Point(113, 5);
+            this.txtRTorrentHost.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRTorrentHost.Name = "txtRTorrentHost";
+            this.txtRTorrentHost.Size = new System.Drawing.Size(229, 20);
+            this.txtRTorrentHost.TabIndex = 101;
+            // 
+            // chkRTorrentHttps
+            // 
+            this.chkRTorrentHttps.AutoSize = true;
+            this.chkRTorrentHttps.Location = new System.Drawing.Point(113, 126);
+            this.chkRTorrentHttps.Name = "chkRTorrentHttps";
+            this.chkRTorrentHttps.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chkRTorrentHttps.Size = new System.Drawing.Size(62, 17);
+            this.chkRTorrentHttps.TabIndex = 106;
+            this.chkRTorrentHttps.Text = "HTTPS";
+            this.chkRTorrentHttps.UseVisualStyleBackColor = true;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(53, 80);
+            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(56, 13);
+            this.label40.TabIndex = 99;
+            this.label40.Text = "Password:";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(46, 56);
+            this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(63, 13);
+            this.label41.TabIndex = 98;
+            this.label41.Text = "User Name:";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(46, 32);
+            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(59, 13);
+            this.label42.TabIndex = 97;
+            this.label42.Text = "URL Base:";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(76, 12);
+            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(32, 13);
+            this.label43.TabIndex = 96;
+            this.label43.Text = "Host:";
+            // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1114,6 +1295,7 @@
             this.Name = "Config";
             this.Text = "Config";
             this.tabTorzNab.ResumeLayout(false);
+            this.tabTorzNab.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1138,6 +1320,8 @@
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.tabRTorrent.ResumeLayout(false);
+            this.tabRTorrent.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1238,5 +1422,21 @@
         private System.Windows.Forms.TextBox txtNewzHost1;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox txtNewzName1;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox txtLinkSubFind;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox txtLinkSubReplace;
+        private System.Windows.Forms.TabPage tabRTorrent;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox txtRTorrentPort;
+        private System.Windows.Forms.TextBox txtRTorrentPassword;
+        private System.Windows.Forms.TextBox txtRTorrentUserName;
+        private System.Windows.Forms.TextBox txtRTorrentUrlBase;
+        private System.Windows.Forms.TextBox txtRTorrentHost;
+        private System.Windows.Forms.CheckBox chkRTorrentHttps;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
     }
 }

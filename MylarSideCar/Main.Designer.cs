@@ -84,6 +84,7 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.lstNZBResults = new System.Windows.Forms.ListBox();
+            this.btnAddToRTorrnt = new System.Windows.Forms.ToolStripButton();
             this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -165,7 +166,7 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cinfToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.settingsToolStripMenuItem.Text = "&Tools";
             // 
             // cinfToolStripMenuItem
@@ -642,7 +643,8 @@
             // 
             this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel4,
-            this.toolStripSeparator5});
+            this.toolStripSeparator5,
+            this.btnAddToRTorrnt});
             this.toolStrip4.Location = new System.Drawing.Point(0, 302);
             this.toolStrip4.Name = "toolStrip4";
             this.toolStrip4.Size = new System.Drawing.Size(396, 25);
@@ -652,7 +654,7 @@
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(50, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(51, 22);
             this.toolStripLabel4.Text = "Torrents";
             // 
             // toolStripSeparator5
@@ -671,6 +673,16 @@
             this.lstNZBResults.Name = "lstNZBResults";
             this.lstNZBResults.Size = new System.Drawing.Size(390, 264);
             this.lstNZBResults.TabIndex = 7;
+            // 
+            // btnAddToRTorrnt
+            // 
+            this.btnAddToRTorrnt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAddToRTorrnt.Image = ((System.Drawing.Image)(resources.GetObject("btnAddToRTorrnt.Image")));
+            this.btnAddToRTorrnt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddToRTorrnt.Name = "btnAddToRTorrnt";
+            this.btnAddToRTorrnt.Size = new System.Drawing.Size(23, 22);
+            this.btnAddToRTorrnt.Text = "Add to RTorrent";
+            this.btnAddToRTorrnt.Click += new System.EventHandler(this.btnAddToRTorrnt_Click);
             // 
             // Main
             // 
@@ -781,6 +793,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.PictureBox imgPublisher;
         private System.Windows.Forms.Label lblPublisher;
+        private System.Windows.Forms.ToolStripButton btnAddToRTorrnt;
     }
 }
 

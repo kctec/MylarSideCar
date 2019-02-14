@@ -55,6 +55,10 @@ namespace MylarSideCar.Manager
             request.AddParameter("id", comicId);
 
             var response = GetRestClient().Execute(request);
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                return null;
+            }
             var content = response.Content;
 
             var jsonSerializerSettings = new JsonSerializerSettings

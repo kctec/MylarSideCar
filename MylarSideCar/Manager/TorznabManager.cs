@@ -46,8 +46,9 @@ namespace MylarSideCar.Manager
                     .Where(result => TitleParsingManager.TitleMatch(result.Title, issue, comic)).ToList();
         }
 
-        private static IEnumerable<TorzNabResult> ParseTorzNabXml(string content)
+        private static IEnumerable<TorzNabResult> ParseTorzNabXml(string content )
         {
+            TorzNabConfig torzNabConfig = ConfigManager.GetConfig<TorzNabConfig>();
             var list = new List<TorzNabResult>();
             var doc = new XmlDocument();
             doc.LoadXml(content);
@@ -82,7 +83,18 @@ namespace MylarSideCar.Manager
                             torzNabResult.Grabs = attribute.InnerText;
                             continue;
                         case "link":
-                            torzNabResult.Link = attribute.InnerText;
+                            if (string.IsNullOrEmpty(torzNabConfig.LinkSubFind))
+                            {
+                                torzNabResult.Link = attribute.InnerText.Replace("&amp;","&");
+                            }
+                            else
+                            {
+                                string link= attribute.InnerText.Replace("&amp;", "&");
+                                    link = link.Replace(torzNabConfig.LinkSubFind,
+                                    torzNabConfig.LinkSubReplace);
+                                torzNabResult.Link = link;
+                            }
+                            
                             continue;
                         case "description":
                             torzNabResult.Description = attribute.InnerText;

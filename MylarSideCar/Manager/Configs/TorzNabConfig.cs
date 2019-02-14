@@ -30,5 +30,9 @@ namespace MylarSideCar.Manager.Configs
         public bool TorzNabEnabled_4 { get; set; }
 
 
+        public string LinkSubFind { get; set; }
+
+        public string LinkSubReplace { get; set; }
+
     }
 }

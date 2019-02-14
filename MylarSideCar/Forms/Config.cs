@@ -18,10 +18,24 @@ namespace MylarSideCar.Forms
 
         private void BindData()
         {
+
+
             if (ConfigManager.HasValue<ComicVineConfig>())
             {
                 var comicVineConfig = ConfigManager.GetConfig<ComicVineConfig>();
                 txtComicVineApiKey.Text = comicVineConfig.ApiKey;
+
+            }
+
+            if (ConfigManager.HasValue<RTorrentConfig>())
+            {
+                var rTorrentConfig = ConfigManager.GetConfig<RTorrentConfig>();
+                txtRTorrentHost.Text = rTorrentConfig.Host;
+                txtRTorrentPassword.Text = rTorrentConfig.Password;
+                txtRTorrentUrlBase.Text = rTorrentConfig.UrlBase;
+                txtRTorrentUserName.Text = rTorrentConfig.Username;
+                chkRTorrentHttps.Checked = rTorrentConfig.UseSsl;
+                txtRTorrentPort.Text = rTorrentConfig.Port;
 
             }
 
@@ -94,13 +108,28 @@ namespace MylarSideCar.Forms
                 txtTorzNabApiKey4.Text = torzNabConfig.TorzNabApiKey_4;
                 chkTorzNabEnabled4.Checked = torzNabConfig.TorzNabEnabled_4;
 
+                txtLinkSubFind.Text = torzNabConfig.LinkSubFind;
+                txtLinkSubReplace.Text = torzNabConfig.LinkSubReplace;
             }
 
 
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ConfigManager.Save();
+
+
+            if (!string.IsNullOrEmpty(txtRTorrentHost.Text))
+            {
+                var rTorrentConfig = ConfigManager.GetConfig<RTorrentConfig>();
+                rTorrentConfig.Password = txtRTorrentPassword.Text;
+                rTorrentConfig.Host = txtRTorrentHost.Text;
+                rTorrentConfig.Port = txtRTorrentPort.Text;
+                rTorrentConfig.UrlBase = txtRTorrentUrlBase.Text;
+                rTorrentConfig.UseSsl = chkRTorrentHttps.Checked;
+                rTorrentConfig.Username = txtRTorrentUserName.Text;
+                ConfigManager.SetConfigValue(rTorrentConfig);
+            }
+
             if (!string.IsNullOrEmpty(txtComicVineApiKey.Text))
             {
                 var comicVineConfig = new ComicVineConfig()
@@ -165,7 +194,10 @@ namespace MylarSideCar.Forms
                     TorzNabName_4 = txtTorzNabName4.Text,
                     TorzNabApiKey_4 = txtTorzNabApiKey4.Text,
                     TorzNabURL_4 = txtTorzNabHost4.Text,
-                    TorzNabEnabled_4 = chkTorzNabEnabled4.Checked
+                    TorzNabEnabled_4 = chkTorzNabEnabled4.Checked,
+                    LinkSubFind = txtLinkSubFind.Text,
+                    LinkSubReplace = txtLinkSubReplace.Text
+
                 };
 
 

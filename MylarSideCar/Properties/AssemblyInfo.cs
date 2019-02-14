@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mylar")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Mylar - Sidecar Utility")]
+[assembly: AssemblyDescription("A side piece app for the Mylar auto downloader")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Mylar")]
+[assembly: AssemblyCompany("KcTec")]
+[assembly: AssemblyProduct("Mylar Sidecar")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

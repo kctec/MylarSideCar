@@ -111,8 +111,7 @@ namespace MylarSideCar
 
             lstComics.Refresh();
             BindComic((Title) lstComics.Items[lstComics.SelectedIndex]);
-
-            tabMain.SelectedIndex = 0;
+ 
             BindIssues();
             lstNZBResults.Items.Clear();
             SetStatus("Ready ...");
@@ -361,7 +360,7 @@ namespace MylarSideCar
 
             imgDetail.Image = null;
 
-            lblComicInfo.Text = null;
+            //lblComicInfo.Text = null;
             lblComicName.Text = null;
 
             imgPublisher.Image = null;

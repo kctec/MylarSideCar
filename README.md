@@ -12,5 +12,7 @@ Current functionality:
     
 Coming functionality:
     - UI improvements
+    - Async Search 
+    
  
    

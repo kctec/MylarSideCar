@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Windows.Forms;
+using Jint.Native;
 using MylarSideCar.Core;
 using MylarSideCar.Forms;
 using MylarSideCar.Manager;
@@ -18,6 +20,8 @@ namespace MylarSideCar
         private List<NewzNabSearchResult> _nzbResults;
         private List<TorzNabResult> _torzNabResults;
         private List<Title> _titles;
+        private CvVolumeSearchResponse _cvVolumeSearchResponse;
+        private List<string> _comicIdsInCollection = new List<string>();
 
         public Main()
         {
@@ -57,18 +61,22 @@ namespace MylarSideCar
 
             lstComics.Items.Clear();
 
+            _comicIdsInCollection.Clear();
             foreach (var title in _titles)
-                if (string.IsNullOrEmpty(txtComicFilter.Text))
+            {
+                _comicIdsInCollection.Add(title.ComicID);
+                if (string.IsNullOrEmpty(txtComicSeachText.Text))
                 {
                     lstComics.Items.Add(title);
                 }
                 else
                 {
-                    var values = txtComicFilter.Text.ToLower().Split(char.Parse(" "));
+                    var values = txtComicSeachText.Text.ToLower().Split(char.Parse(" "));
                     var match = values.All(value => title.BindingName.ToLower().Contains(value));
                     if (match)
                         lstComics.Items.Add(title);
                 }
+            }
 
 
             SetStatus("ready ...");
@@ -270,6 +278,38 @@ namespace MylarSideCar
 
         }
 
+        private void BindComic(CvVolume volume)
+        {
+           
+            imgDetail.Image = ImageCacheManager.GetImage(volume.Image.LargeUrl);
+            lblComicName.Text =volume.Name;
+            CvVolumeResponse v = new CvVolumeResponse();
+            v.Volume = volume;
+            _currentVolume =v;
+            lblComicName.Text += @"  (" + _currentVolume.Volume.StartYear + @")";
+
+            webDetails.DocumentText = "0";
+            if (webDetails.Document != null)
+            {
+                webDetails.Document.OpenNew(true);
+                webDetails.Document.Write(_currentVolume.Volume.Description);
+            }
+
+            webDetails.Refresh();
+
+            if (_currentVolume.Volume.Publisher==null)
+            {
+                var pub = ComicVineManager.GetPublisher(_currentVolume.Volume.Publisher.Id);
+                imgPublisher.Image = ImageCacheManager.GetImage(pub.Publisher.Image.IconUrl);
+            }
+            else
+            {
+                imgPublisher.Image = null;
+
+            }
+
+        }
+
         private void BindIssues()
         {
             lstIssues.DrawItem -= ListIssues_DrawItem;
@@ -465,6 +505,52 @@ namespace MylarSideCar
             {
                 FilterTors();
             }
+        }
+
+        private void txtFilterSearch_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        public void BindComicVineResults()
+        {
+            lstComicSearchResults.Items.Clear();
+
+ 
+            if (_cvVolumeSearchResponse == null) return;
+            foreach (var volume in _cvVolumeSearchResponse.Volumes)
+            {
+                if(!_comicIdsInCollection.Contains(volume.Id.ToString()))
+                    lstComicSearchResults.Items.Add(volume);
+            }
+        }
+
+        private void btnSearchComicVine_Click(object sender, EventArgs e)
+        {
+            _cvVolumeSearchResponse = null;
+            if (string.IsNullOrWhiteSpace(txtComicSeachText.Text))
+            {
+                BindComicVineResults();
+                return;
+            }
+
+            _cvVolumeSearchResponse = ComicVineManager.GetVolumeSearchResults(txtComicSeachText.Text);
+            BindComicVineResults();
+
+        }
+
+        private void lstComicSearchResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindComic((CvVolume) lstComicSearchResults.SelectedItem);
+        }
+
+        private void btnSendToMylar_Click(object sender, EventArgs e)
+        {
+            CvVolume vol = (CvVolume) lstComicSearchResults.SelectedItem;
+            MylarManager.AddComic(vol.Id.ToString());
+            txtComicSeachText.Text = vol.Name;
+            ClearAll();
+            LoadData();
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using MylarSideCar.Manager.Configs;
 using MylarSideCar.Model;
 using Newtonsoft.Json;
+using NLog;
 using RestSharp;
 
 namespace MylarSideCar.Manager
@@ -11,7 +13,7 @@ namespace MylarSideCar.Manager
     {
         private static MylarConfig _mylarConfig;
         private static RestClient _client;
-
+       
         private static RestClient GetRestClient()
         {
             return _client ?? (_client = new RestClient(GetConfig().HostURL));
@@ -46,7 +48,26 @@ namespace MylarSideCar.Manager
 
         }
 
+        public static bool AddComic(string comicId)
+        {
+            var request = new RestRequest("/", Method.GET);
+            request.AddParameter("apikey", GetConfig().APIkey);
+            request.AddParameter("cmd", "addComic");
+            request.AddParameter("id", comicId);
 
+            var response = GetRestClient().Execute(request);
+            string content;
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                content = response.Content;
+                Debug.Write(content);
+                return true;
+            }
+            content = response.Content;
+            Debug.Write(content);
+            return false;
+        }
+     
         public static ComicMaster GetComic(string comicId)
         {
             var request = new RestRequest("/", Method.GET);

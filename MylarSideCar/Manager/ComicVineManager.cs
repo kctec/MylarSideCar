@@ -90,8 +90,27 @@ namespace MylarSideCar.Manager
             };
 
             return JsonConvert.DeserializeObject<CvPublisherResponse>(content, jsonSerializerSettings);
+         }
 
-     
+        public static CvVolumeSearchResponse GetVolumeSearchResults(string searchText)
+        {
+            var request = new RestRequest("/search", Method.GET);
+            request.AddParameter("api_key", GetConfig().ApiKey);
+            request.AddParameter("format", "json");
+            request.AddParameter("resources", "volume");
+            request.AddParameter("query", searchText);
+            request.AddParameter("limit", "1000");
+
+            var response = GetRestClient().Execute(request);
+            var content = response.Content;
+
+            var jsonSerializerSettings = new JsonSerializerSettings
+            {
+                MissingMemberHandling = MissingMemberHandling.Ignore
+            };
+
+            return JsonConvert.DeserializeObject<CvVolumeSearchResponse>(content, jsonSerializerSettings);
+
         }
 
         public static CvIssueResponse GetIssue(string issueId)
@@ -129,7 +148,6 @@ namespace MylarSideCar.Manager
 
 
         }
-
-
+ 
     }
 }

@@ -44,9 +44,11 @@
             this.toolStripComics = new System.Windows.Forms.ToolStrip();
             this.lblToolStripComic = new System.Windows.Forms.ToolStripLabel();
             this.sepToolStripComkics1 = new System.Windows.Forms.ToolStripSeparator();
-            this.txtComicFilter = new System.Windows.Forms.ToolStripTextBox();
+            this.txtComicSeachText = new System.Windows.Forms.ToolStripTextBox();
             this.btnSearchComic = new System.Windows.Forms.ToolStripButton();
             this.btnRefreshData = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSearchComicVine = new System.Windows.Forms.ToolStripButton();
             this.lstIssues = new System.Windows.Forms.ListBox();
             this.toolStripIssues = new System.Windows.Forms.ToolStrip();
             this.lblToolStripIssues = new System.Windows.Forms.ToolStripLabel();
@@ -59,6 +61,16 @@
             this.splitMain = new System.Windows.Forms.SplitContainer();
             this.lblComicName = new System.Windows.Forms.Label();
             this.imgPublisher = new System.Windows.Forms.PictureBox();
+            this.splitDetail = new System.Windows.Forms.SplitContainer();
+            this.splitImageDescription = new System.Windows.Forms.SplitContainer();
+            this.imgDetail = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.webDetails = new System.Windows.Forms.WebBrowser();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.lblSearch = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtFilterSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.btnSendToMylar = new System.Windows.Forms.ToolStripButton();
             this.splitSearch = new System.Windows.Forms.SplitContainer();
             this.lstNZBResults = new System.Windows.Forms.ListBox();
             this.toolStripNzb = new System.Windows.Forms.ToolStrip();
@@ -77,18 +89,7 @@
             this.grpComicDescription = new System.Windows.Forms.GroupBox();
             this.webComicDescription = new System.Windows.Forms.WebBrowser();
             this.comicImage = new System.Windows.Forms.PictureBox();
-            this.splitDetail = new System.Windows.Forms.SplitContainer();
-            this.splitImageDescription = new System.Windows.Forms.SplitContainer();
-            this.imgDetail = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.webDetails = new System.Windows.Forms.WebBrowser();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.lblSearch = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.txtFilterSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.btnSendToMylar = new System.Windows.Forms.ToolStripButton();
+            this.lstComicSearchResults = new System.Windows.Forms.ListBox();
             this.statusStrip.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -110,13 +111,6 @@
             this.splitMain.Panel2.SuspendLayout();
             this.splitMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPublisher)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitSearch)).BeginInit();
-            this.splitSearch.Panel1.SuspendLayout();
-            this.splitSearch.Panel2.SuspendLayout();
-            this.splitSearch.SuspendLayout();
-            this.toolStripNzb.SuspendLayout();
-            this.toolStripTorrent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitDetail)).BeginInit();
             this.splitDetail.Panel1.SuspendLayout();
             this.splitDetail.Panel2.SuspendLayout();
@@ -128,6 +122,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgDetail)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitSearch)).BeginInit();
+            this.splitSearch.Panel1.SuspendLayout();
+            this.splitSearch.Panel2.SuspendLayout();
+            this.splitSearch.SuspendLayout();
+            this.toolStripNzb.SuspendLayout();
+            this.toolStripTorrent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -244,11 +245,11 @@
             this.toolStripComics.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblToolStripComic,
             this.sepToolStripComkics1,
-            this.txtComicFilter,
+            this.txtComicSeachText,
             this.btnSearchComic,
             this.btnRefreshData,
             this.toolStripSeparator6,
-            this.toolStripButton1});
+            this.btnSearchComicVine});
             this.toolStripComics.Location = new System.Drawing.Point(0, 0);
             this.toolStripComics.Name = "toolStripComics";
             this.toolStripComics.Size = new System.Drawing.Size(357, 25);
@@ -266,12 +267,12 @@
             this.sepToolStripComkics1.Name = "sepToolStripComkics1";
             this.sepToolStripComkics1.Size = new System.Drawing.Size(6, 25);
             // 
-            // txtComicFilter
+            // txtComicSeachText
             // 
-            this.txtComicFilter.Name = "txtComicFilter";
-            this.txtComicFilter.Size = new System.Drawing.Size(200, 25);
-            this.txtComicFilter.Leave += new System.EventHandler(this.txtComicFilter_Leave);
-            this.txtComicFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtComicFilter_KeyDown);
+            this.txtComicSeachText.Name = "txtComicSeachText";
+            this.txtComicSeachText.Size = new System.Drawing.Size(200, 25);
+            this.txtComicSeachText.Leave += new System.EventHandler(this.txtComicFilter_Leave);
+            this.txtComicSeachText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtComicFilter_KeyDown);
             // 
             // btnSearchComic
             // 
@@ -293,6 +294,22 @@
             this.btnRefreshData.Size = new System.Drawing.Size(23, 22);
             this.btnRefreshData.Text = "toolStripButton2";
             this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnSearchComicVine
+            // 
+            this.btnSearchComicVine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSearchComicVine.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchComicVine.Image")));
+            this.btnSearchComicVine.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSearchComicVine.Name = "btnSearchComicVine";
+            this.btnSearchComicVine.Size = new System.Drawing.Size(23, 22);
+            this.btnSearchComicVine.Text = "toolStripButton1";
+            this.btnSearchComicVine.ToolTipText = "Search Comic Vine";
+            this.btnSearchComicVine.Click += new System.EventHandler(this.btnSearchComicVine_Click);
             // 
             // lstIssues
             // 
@@ -427,6 +444,115 @@
             this.imgPublisher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgPublisher.TabIndex = 11;
             this.imgPublisher.TabStop = false;
+            // 
+            // splitDetail
+            // 
+            this.splitDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitDetail.Location = new System.Drawing.Point(0, 0);
+            this.splitDetail.Name = "splitDetail";
+            this.splitDetail.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitDetail.Panel1
+            // 
+            this.splitDetail.Panel1.Controls.Add(this.splitImageDescription);
+            // 
+            // splitDetail.Panel2
+            // 
+            this.splitDetail.Panel2.Controls.Add(this.lstComicSearchResults);
+            this.splitDetail.Panel2.Controls.Add(this.toolStrip1);
+            this.splitDetail.Size = new System.Drawing.Size(622, 543);
+            this.splitDetail.SplitterDistance = 365;
+            this.splitDetail.TabIndex = 0;
+            // 
+            // splitImageDescription
+            // 
+            this.splitImageDescription.BackColor = System.Drawing.Color.White;
+            this.splitImageDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitImageDescription.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitImageDescription.Location = new System.Drawing.Point(0, 0);
+            this.splitImageDescription.Name = "splitImageDescription";
+            // 
+            // splitImageDescription.Panel1
+            // 
+            this.splitImageDescription.Panel1.Controls.Add(this.imgDetail);
+            // 
+            // splitImageDescription.Panel2
+            // 
+            this.splitImageDescription.Panel2.Controls.Add(this.groupBox1);
+            this.splitImageDescription.Size = new System.Drawing.Size(622, 365);
+            this.splitImageDescription.SplitterDistance = 364;
+            this.splitImageDescription.TabIndex = 1;
+            // 
+            // imgDetail
+            // 
+            this.imgDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imgDetail.Location = new System.Drawing.Point(0, 0);
+            this.imgDetail.Name = "imgDetail";
+            this.imgDetail.Size = new System.Drawing.Size(364, 365);
+            this.imgDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgDetail.TabIndex = 8;
+            this.imgDetail.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.webDetails);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(254, 365);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Description:";
+            // 
+            // webDetails
+            // 
+            this.webDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webDetails.Location = new System.Drawing.Point(3, 16);
+            this.webDetails.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webDetails.Name = "webDetails";
+            this.webDetails.Size = new System.Drawing.Size(248, 346);
+            this.webDetails.TabIndex = 0;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblSearch,
+            this.toolStripSeparator7,
+            this.txtFilterSearch,
+            this.btnSendToMylar});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(622, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(42, 22);
+            this.lblSearch.Text = "Search";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // txtFilterSearch
+            // 
+            this.txtFilterSearch.Name = "txtFilterSearch";
+            this.txtFilterSearch.Size = new System.Drawing.Size(200, 25);
+            this.txtFilterSearch.Leave += new System.EventHandler(this.txtFilterSearch_Leave);
+            // 
+            // btnSendToMylar
+            // 
+            this.btnSendToMylar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSendToMylar.Image = ((System.Drawing.Image)(resources.GetObject("btnSendToMylar.Image")));
+            this.btnSendToMylar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSendToMylar.Name = "btnSendToMylar";
+            this.btnSendToMylar.Size = new System.Drawing.Size(23, 22);
+            this.btnSendToMylar.Text = "toolStripButton2";
+            this.btnSendToMylar.ToolTipText = "Add To Mylar";
+            this.btnSendToMylar.Click += new System.EventHandler(this.btnSendToMylar_Click);
             // 
             // splitSearch
             // 
@@ -594,125 +720,16 @@
             this.comicImage.TabIndex = 14;
             this.comicImage.TabStop = false;
             // 
-            // splitDetail
+            // lstComicSearchResults
             // 
-            this.splitDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitDetail.Location = new System.Drawing.Point(0, 0);
-            this.splitDetail.Name = "splitDetail";
-            this.splitDetail.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitDetail.Panel1
-            // 
-            this.splitDetail.Panel1.Controls.Add(this.splitImageDescription);
-            // 
-            // splitDetail.Panel2
-            // 
-            this.splitDetail.Panel2.Controls.Add(this.toolStrip1);
-            this.splitDetail.Size = new System.Drawing.Size(622, 543);
-            this.splitDetail.SplitterDistance = 365;
-            this.splitDetail.TabIndex = 0;
-            // 
-            // splitImageDescription
-            // 
-            this.splitImageDescription.BackColor = System.Drawing.Color.White;
-            this.splitImageDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitImageDescription.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitImageDescription.Location = new System.Drawing.Point(0, 0);
-            this.splitImageDescription.Name = "splitImageDescription";
-            // 
-            // splitImageDescription.Panel1
-            // 
-            this.splitImageDescription.Panel1.Controls.Add(this.imgDetail);
-            // 
-            // splitImageDescription.Panel2
-            // 
-            this.splitImageDescription.Panel2.Controls.Add(this.groupBox1);
-            this.splitImageDescription.Size = new System.Drawing.Size(622, 365);
-            this.splitImageDescription.SplitterDistance = 364;
-            this.splitImageDescription.TabIndex = 1;
-            // 
-            // imgDetail
-            // 
-            this.imgDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgDetail.Location = new System.Drawing.Point(0, 0);
-            this.imgDetail.Name = "imgDetail";
-            this.imgDetail.Size = new System.Drawing.Size(364, 365);
-            this.imgDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgDetail.TabIndex = 8;
-            this.imgDetail.TabStop = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.webDetails);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 365);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Description:";
-            // 
-            // webDetails
-            // 
-            this.webDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webDetails.Location = new System.Drawing.Point(3, 16);
-            this.webDetails.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webDetails.Name = "webDetails";
-            this.webDetails.Size = new System.Drawing.Size(248, 346);
-            this.webDetails.TabIndex = 0;
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblSearch,
-            this.toolStripSeparator7,
-            this.txtFilterSearch,
-            this.btnSendToMylar});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(622, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(42, 22);
-            this.lblSearch.Text = "Search";
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
-            // 
-            // txtFilterSearch
-            // 
-            this.txtFilterSearch.Name = "txtFilterSearch";
-            this.txtFilterSearch.Size = new System.Drawing.Size(200, 25);
-            // 
-            // btnSendToMylar
-            // 
-            this.btnSendToMylar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSendToMylar.Image = ((System.Drawing.Image)(resources.GetObject("btnSendToMylar.Image")));
-            this.btnSendToMylar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSendToMylar.Name = "btnSendToMylar";
-            this.btnSendToMylar.Size = new System.Drawing.Size(23, 22);
-            this.btnSendToMylar.Text = "toolStripButton2";
-            this.btnSendToMylar.ToolTipText = "Add To Mylar";
+            this.lstComicSearchResults.DisplayMember = "BindingName";
+            this.lstComicSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstComicSearchResults.FormattingEnabled = true;
+            this.lstComicSearchResults.Location = new System.Drawing.Point(0, 25);
+            this.lstComicSearchResults.Name = "lstComicSearchResults";
+            this.lstComicSearchResults.Size = new System.Drawing.Size(622, 149);
+            this.lstComicSearchResults.TabIndex = 1;
+            this.lstComicSearchResults.SelectedIndexChanged += new System.EventHandler(this.lstComicSearchResults_SelectedIndexChanged);
             // 
             // Main
             // 
@@ -754,17 +771,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgPublisher)).EndInit();
-            this.splitSearch.Panel1.ResumeLayout(false);
-            this.splitSearch.Panel1.PerformLayout();
-            this.splitSearch.Panel2.ResumeLayout(false);
-            this.splitSearch.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitSearch)).EndInit();
-            this.splitSearch.ResumeLayout(false);
-            this.toolStripNzb.ResumeLayout(false);
-            this.toolStripNzb.PerformLayout();
-            this.toolStripTorrent.ResumeLayout(false);
-            this.toolStripTorrent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).EndInit();
             this.splitDetail.Panel1.ResumeLayout(false);
             this.splitDetail.Panel2.ResumeLayout(false);
             this.splitDetail.Panel2.PerformLayout();
@@ -778,6 +784,17 @@
             this.groupBox1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.splitSearch.Panel1.ResumeLayout(false);
+            this.splitSearch.Panel1.PerformLayout();
+            this.splitSearch.Panel2.ResumeLayout(false);
+            this.splitSearch.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitSearch)).EndInit();
+            this.splitSearch.ResumeLayout(false);
+            this.toolStripNzb.ResumeLayout(false);
+            this.toolStripNzb.PerformLayout();
+            this.toolStripTorrent.ResumeLayout(false);
+            this.toolStripTorrent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comicImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -799,7 +816,7 @@
         private System.Windows.Forms.ToolStrip toolStripComics;
         private System.Windows.Forms.ToolStripLabel lblToolStripComic;
         private System.Windows.Forms.ToolStripSeparator sepToolStripComkics1;
-        private System.Windows.Forms.ToolStripTextBox txtComicFilter;
+        private System.Windows.Forms.ToolStripTextBox txtComicSeachText;
         private System.Windows.Forms.ToolStripButton btnSearchComic;
         private System.Windows.Forms.ToolStripButton btnRefreshData;
         private System.Windows.Forms.ListBox lstIssues;
@@ -837,12 +854,13 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.WebBrowser webDetails;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnSearchComicVine;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel lblSearch;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripTextBox txtFilterSearch;
         private System.Windows.Forms.ToolStripButton btnSendToMylar;
+        private System.Windows.Forms.ListBox lstComicSearchResults;
     }
 }
 

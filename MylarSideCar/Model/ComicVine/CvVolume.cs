@@ -49,5 +49,10 @@ namespace MylarSideCar.Model.ComicVine
 
         [Newtonsoft.Json.JsonProperty(PropertyName = "publisher")]
         public CvObject Publisher { get; set; }
+
+        [Newtonsoft.Json.JsonProperty(PropertyName = "image")]
+        public CvImage Image { get; set; }
+
+        public string BindingName => Name + " (" + StartYear + ") - "  + Publisher?.Name;
     }
 }

@@ -129,6 +129,7 @@
     <Compile Include="Model\ComicVine\CvVolume.cs" />
     <Compile Include="Model\ComicVine\CvVolumeResponse.cs" />
     <Compile Include="Model\ComicVine\CvPublisher.cs" />
+    <Compile Include="Model\ComicVine\CvVolumeSearchResponse.cs" />
     <Compile Include="Model\NewzNabSearchResult.cs" />
     <Compile Include="Manager\NewzNab\NewzNabSources.cs" />
     <Compile Include="Manager\MylarManager.cs" />

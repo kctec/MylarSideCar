@@ -67,7 +67,28 @@ namespace MylarSideCar.Manager
             Debug.Write(content);
             return false;
         }
-     
+
+
+        public static bool DeleteComic(string comicId )
+        {
+            var request = new RestRequest("/", Method.GET);
+            request.AddParameter("apikey", GetConfig().APIkey);
+            request.AddParameter("cmd", "delComic");
+            request.AddParameter("id", comicId);
+
+            var response = GetRestClient().Execute(request);
+            string content;
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                content = response.Content;
+                Debug.Write(content);
+                return true;
+            }
+            content = response.Content;
+            Debug.Write(content);
+            return false;
+        }
+
         public static ComicMaster GetComic(string comicId)
         {
             var request = new RestRequest("/", Method.GET);

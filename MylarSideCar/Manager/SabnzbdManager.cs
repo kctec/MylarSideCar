@@ -35,7 +35,7 @@ namespace MylarSideCar.Manager
 
 
             {
-                string nzbName = Regex.Replace(comic.ComicName, "[^a-zA-Z0-9_]+", "_");
+                string nzbName = Regex.Replace(result.Title, "[^a-zA-Z0-9_]+", "_");
                 client.AddQueue(result.NZBUrl, nzbName, "comics");
 
 

@@ -66,6 +66,7 @@
             this.imgDetail = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.webDetails = new System.Windows.Forms.WebBrowser();
+            this.lstComicSearchResults = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.lblSearch = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -89,7 +90,7 @@
             this.grpComicDescription = new System.Windows.Forms.GroupBox();
             this.webComicDescription = new System.Windows.Forms.WebBrowser();
             this.comicImage = new System.Windows.Forms.PictureBox();
-            this.lstComicSearchResults = new System.Windows.Forms.ListBox();
+            this.btnDeleteComic = new System.Windows.Forms.ToolStripButton();
             this.statusStrip.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -249,7 +250,8 @@
             this.btnSearchComic,
             this.btnRefreshData,
             this.toolStripSeparator6,
-            this.btnSearchComicVine});
+            this.btnSearchComicVine,
+            this.btnDeleteComic});
             this.toolStripComics.Location = new System.Drawing.Point(0, 0);
             this.toolStripComics.Name = "toolStripComics";
             this.toolStripComics.Size = new System.Drawing.Size(357, 25);
@@ -270,7 +272,7 @@
             // txtComicSeachText
             // 
             this.txtComicSeachText.Name = "txtComicSeachText";
-            this.txtComicSeachText.Size = new System.Drawing.Size(200, 25);
+            this.txtComicSeachText.Size = new System.Drawing.Size(150, 25);
             this.txtComicSeachText.Leave += new System.EventHandler(this.txtComicFilter_Leave);
             this.txtComicSeachText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtComicFilter_KeyDown);
             // 
@@ -513,6 +515,17 @@
             this.webDetails.Size = new System.Drawing.Size(248, 346);
             this.webDetails.TabIndex = 0;
             // 
+            // lstComicSearchResults
+            // 
+            this.lstComicSearchResults.DisplayMember = "BindingName";
+            this.lstComicSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstComicSearchResults.FormattingEnabled = true;
+            this.lstComicSearchResults.Location = new System.Drawing.Point(0, 25);
+            this.lstComicSearchResults.Name = "lstComicSearchResults";
+            this.lstComicSearchResults.Size = new System.Drawing.Size(622, 149);
+            this.lstComicSearchResults.TabIndex = 1;
+            this.lstComicSearchResults.SelectedIndexChanged += new System.EventHandler(this.lstComicSearchResults_SelectedIndexChanged);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -541,7 +554,7 @@
             // 
             this.txtFilterSearch.Name = "txtFilterSearch";
             this.txtFilterSearch.Size = new System.Drawing.Size(200, 25);
-            this.txtFilterSearch.Leave += new System.EventHandler(this.txtFilterSearch_Leave);
+            this.txtFilterSearch.Leave += new System.EventHandler(this.txtNzbResultsFilter_Leave);
             // 
             // btnSendToMylar
             // 
@@ -720,16 +733,16 @@
             this.comicImage.TabIndex = 14;
             this.comicImage.TabStop = false;
             // 
-            // lstComicSearchResults
+            // btnDeleteComic
             // 
-            this.lstComicSearchResults.DisplayMember = "BindingName";
-            this.lstComicSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstComicSearchResults.FormattingEnabled = true;
-            this.lstComicSearchResults.Location = new System.Drawing.Point(0, 25);
-            this.lstComicSearchResults.Name = "lstComicSearchResults";
-            this.lstComicSearchResults.Size = new System.Drawing.Size(622, 149);
-            this.lstComicSearchResults.TabIndex = 1;
-            this.lstComicSearchResults.SelectedIndexChanged += new System.EventHandler(this.lstComicSearchResults_SelectedIndexChanged);
+            this.btnDeleteComic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDeleteComic.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteComic.Image")));
+            this.btnDeleteComic.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteComic.Name = "btnDeleteComic";
+            this.btnDeleteComic.Size = new System.Drawing.Size(23, 22);
+            this.btnDeleteComic.Text = "toolStripButton1";
+            this.btnDeleteComic.ToolTipText = "Delete Comics";
+            this.btnDeleteComic.Click += new System.EventHandler(this.btnDeleteComic_Click);
             // 
             // Main
             // 
@@ -861,6 +874,7 @@
         private System.Windows.Forms.ToolStripTextBox txtFilterSearch;
         private System.Windows.Forms.ToolStripButton btnSendToMylar;
         private System.Windows.Forms.ListBox lstComicSearchResults;
+        private System.Windows.Forms.ToolStripButton btnDeleteComic;
     }
 }
 

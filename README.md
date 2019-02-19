@@ -11,7 +11,7 @@ This application is designed to be a utility for Mylar the comic book auto downl
     * Delete Comic Mylar
     * Search TorzNab (Jackett)
     
-Coming functionality:
+* Coming functionality:
     * UI improvements
     * Async Search 
     

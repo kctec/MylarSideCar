@@ -6,10 +6,13 @@ Current functionality:
     - Interface with Mylar API
     - Interface with SabNzbD
     - Interface with NewzNab friendly providers
+    - Comic Vin Search
+    - Add volume to mylar
+    - Search NzbNab, TorzNab
     
 Coming functionality:
     - UI improvements
-    - Torrent Search 
-    - Interface with Rtorrent
-    - Comic Vine volume search and add to Mylar
+    - Async Search 
+    
+ 
    

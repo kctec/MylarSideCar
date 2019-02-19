@@ -514,11 +514,21 @@ namespace MylarSideCar
 
             if (_cvVolumeSearchResponse == null) return;
             foreach (var volume in _cvVolumeSearchResponse.Volumes)
-            { 
-                
+            {
+
                 if (_comicIdsInCollection.Contains(volume.Id.ToString()))
+                {
                     continue;
-                lstComicSearchResults.Items.Add(volume);
+                }
+
+                var values = !string.IsNullOrEmpty(txtFilterSearch.Text)
+                    ? txtFilterSearch.Text.Split(' ')
+                    : (txtFilterSearch.Text + " " + txtComicSeachText.Text).Split(' ');
+
+                var found = values.All(value => volume.BindingName.ToLower().Contains(value.ToLower()));
+                if (found)
+                    lstComicSearchResults.Items.Add(volume);
+
             }
         }
 
@@ -560,6 +570,20 @@ namespace MylarSideCar
             MylarManager.DeleteComic(((Title)lstComics.SelectedItem).ComicID);
             ClearAll();
             LoadData();
+        }
+
+        private void txtFilterSearch_Leave(object sender, EventArgs e)
+        {
+            BindComicVineResults();
+        }
+
+        private void txtFilterSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Return)
+
+            {
+                BindComicVineResults();
+            }
         }
     }
 }

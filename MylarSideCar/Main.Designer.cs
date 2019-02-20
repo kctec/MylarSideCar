@@ -91,6 +91,8 @@
             this.grpComicDescription = new System.Windows.Forms.GroupBox();
             this.webComicDescription = new System.Windows.Forms.WebBrowser();
             this.comicImage = new System.Windows.Forms.PictureBox();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnComicVineNew = new System.Windows.Forms.ToolStripButton();
             this.statusStrip.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -251,6 +253,8 @@
             this.btnRefreshData,
             this.toolStripSeparator6,
             this.btnSearchComicVine,
+            this.btnComicVineNew,
+            this.toolStripSeparator8,
             this.btnDeleteComic});
             this.toolStripComics.Location = new System.Drawing.Point(0, 0);
             this.toolStripComics.Name = "toolStripComics";
@@ -319,7 +323,7 @@
             this.btnDeleteComic.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteComic.Image")));
             this.btnDeleteComic.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDeleteComic.Name = "btnDeleteComic";
-            this.btnDeleteComic.Size = new System.Drawing.Size(23, 22);
+            this.btnDeleteComic.Size = new System.Drawing.Size(23, 20);
             this.btnDeleteComic.Text = "toolStripButton1";
             this.btnDeleteComic.ToolTipText = "Delete Comics";
             this.btnDeleteComic.Click += new System.EventHandler(this.btnDeleteComic_Click);
@@ -745,6 +749,21 @@
             this.comicImage.TabIndex = 14;
             this.comicImage.TabStop = false;
             // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnComicVineNew
+            // 
+            this.btnComicVineNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnComicVineNew.Image = ((System.Drawing.Image)(resources.GetObject("btnComicVineNew.Image")));
+            this.btnComicVineNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnComicVineNew.Name = "btnComicVineNew";
+            this.btnComicVineNew.Size = new System.Drawing.Size(23, 22);
+            this.btnComicVineNew.Text = "toolStripButton1";
+            this.btnComicVineNew.Click += new System.EventHandler(this.btnComicVineNew_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -876,6 +895,8 @@
         private System.Windows.Forms.ToolStripButton btnSendToMylar;
         private System.Windows.Forms.ListBox lstComicSearchResults;
         private System.Windows.Forms.ToolStripButton btnDeleteComic;
+        private System.Windows.Forms.ToolStripButton btnComicVineNew;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     }
 }
 

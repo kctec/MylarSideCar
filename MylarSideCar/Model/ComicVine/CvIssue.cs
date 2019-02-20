@@ -18,6 +18,9 @@ namespace MylarSideCar.Model.ComicVine
         [Newtonsoft.Json.JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
-     
+        [Newtonsoft.Json.JsonProperty(PropertyName = "volume")]
+        public CvVolume Volume { get; set; }
+
+
     }
 }

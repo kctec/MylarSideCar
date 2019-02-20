@@ -1,9 +1,15 @@
-﻿using MylarSideCar.Manager.Configs;
+﻿using System;
+using System.Collections.Generic;
+using MylarSideCar.Manager.Configs;
 using MylarSideCar.Model.ComicVine;
 using Newtonsoft.Json;
 using RestSharp;
 using System.IO;
+using System.Linq;
+using System.ServiceModel.Syndication;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace MylarSideCar.Manager
 {
@@ -148,6 +154,52 @@ namespace MylarSideCar.Manager
 
 
         }
+
+        public static CvVolumeSearchResponse GetNewThisWeek()
+        {
+            CvVolumeSearchResponse response = new CvVolumeSearchResponse();
+            response.Volumes = new List<CvVolume>();
+
+            RestClient r = new RestClient("https://comicvine.gamespot.com/feeds/new-comics/");
+
+            var request = new RestRequest("", Method.GET);
  
+ 
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.DtdProcessing = DtdProcessing.Ignore;
+
+            var res =r.Execute(request);
+            string rawFeed = res.Content;
+
+            var xDoc = XDocument.Parse(rawFeed); //XDocument.Load(filename)
+
+            xDoc.Descendants("cache").ToList().ForEach(a => a.Remove());
+
+            var newxml = xDoc.ToString();
+
+
+
+            XmlReader xmlReader = XmlReader.Create(new StringReader(newxml),settings);
+ 
+            
+            SyndicationFeed feed = SyndicationFeed.Load(xmlReader);
+            foreach (SyndicationItem item in feed.Items)
+            {
+                //get issue ID 
+                string[] uriChunks = item.Links[0].Uri.AbsoluteUri.Split('/');
+                string issueId = uriChunks[uriChunks.Length - 2].Split('-')[1].Trim();
+                CvIssue issue = GetIssue(issueId).Issue;
+
+                CvVolume volume = issue.Volume;
+
+                volume.Name += " Issue #" + issue.IssueNumber;
+                response.Volumes.Add(volume);
+
+            }
+
+            return response;
+        }
+
+
     }
 }

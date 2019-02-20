@@ -257,8 +257,9 @@ namespace MylarSideCar
         private void BindComic(Title title)
         {
             _currentComic = MylarManager.GetComic(title.ComicID);
-  
-            imgDetail.Image = ImageCacheManager.GetImage(_currentComic.Comics[0].ComicImageURL);
+
+            imgDetail.Image = ImageCacheManager.GetImage(_currentComic.Comics[0].ComicImageURL ?? _currentVolume.Volume.Image.LargeUrl);
+
             lblComicName.Text = _currentComic.Comics[0].ComicName; 
 
             _currentVolume = ComicVineManager.GetVolume(title.ComicID);
@@ -280,6 +281,10 @@ namespace MylarSideCar
 
         private void BindComic(CvVolume volume)
         {
+            if (volume.Image?.LargeUrl == null)
+            {
+                volume = ComicVineManager.GetVolume(volume.Id.ToString()).Volume;
+            }
            
             imgDetail.Image = ImageCacheManager.GetImage(volume.Image.LargeUrl);
             lblComicName.Text =volume.Name;
@@ -299,8 +304,11 @@ namespace MylarSideCar
 
             if (_currentVolume.Volume.Publisher==null)
             {
-                var pub = ComicVineManager.GetPublisher(_currentVolume.Volume.Publisher.Id);
-                imgPublisher.Image = ImageCacheManager.GetImage(pub.Publisher.Image.IconUrl);
+                if (_currentVolume.Volume.Publisher != null)
+                {
+                    var pub = ComicVineManager.GetPublisher(_currentVolume.Volume.Publisher.Id);
+                    imgPublisher.Image = ImageCacheManager.GetImage(pub.Publisher.Image.IconUrl);
+                }
             }
             else
             {
@@ -584,6 +592,16 @@ namespace MylarSideCar
             {
                 BindComicVineResults();
             }
+        }
+
+        private void btnComicVineNew_Click(object sender, EventArgs e)
+        {
+            _cvVolumeSearchResponse = null;
+            txtComicSeachText.Text = null;
+           
+
+            _cvVolumeSearchResponse = ComicVineManager.GetNewThisWeek();
+            BindComicVineResults();
         }
     }
 }
